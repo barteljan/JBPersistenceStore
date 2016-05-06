@@ -1,0 +1,30 @@
+{
+  "name": "JBPersistenceStore",
+  "version": "0.1.0",
+  "summary": "A short description of JBPersistenceStore.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/JBPersistenceStore",
+  "license": "MIT",
+  "authors": {
+    "Jan Bartel": "jan.bartel@atino.net"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/JBPersistenceStore.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "JBPersistenceStore/Classes/**/*",
+  "dependencies": {
+    "YapDatabase": [
+
+    ],
+    "ValueCoding": [
+
+    ],
+    "JBPersistenceStore-Protocols": [
+
+    ]
+  }
+}

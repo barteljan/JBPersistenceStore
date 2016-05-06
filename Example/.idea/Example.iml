@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CIDR_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/..">
+      <sourceFolder url="file://$MODULE_DIR$/../JBPersistenceStore/Classes/PersistenceStore.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../README.md" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../LICENSE" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JBPersistenceStore/Images.xcassets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JBPersistenceStore/ViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JBPersistenceStore/AppDelegate.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JBPersistenceStore/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JBPersistenceStore/Base.lproj/LaunchScreen.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JBPersistenceStore/Base.lproj/Main.storyboard" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tests/Tests.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tests/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/ValueCoding/ValueCoding/ValueCoding.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore/JBPersistenceStore.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore/JBPersistenceStore.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore/JBPersistenceStore-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore/JBPersistenceStore-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore/JBPersistenceStore-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/ValueCoding/ValueCoding-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/ValueCoding/ValueCoding.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/ValueCoding/ValueCoding-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/ValueCoding/ValueCoding-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/ValueCoding/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/ValueCoding/ValueCoding.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/CocoaLumberjack/CocoaLumberjack-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/CocoaLumberjack/CocoaLumberjack-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/CocoaLumberjack/CocoaLumberjack.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/CocoaLumberjack/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/CocoaLumberjack/CocoaLumberjack.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Example/Pods-JBPersistenceStore_Example-frameworks.sh" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Example/Pods-JBPersistenceStore_Example-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Example/Pods-JBPersistenceStore_Example.release.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Example/Pods-JBPersistenceStore_Example-resources.sh" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Example/Pods-JBPersistenceStore_Example-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Example/Pods-JBPersistenceStore_Example-acknowledgements.markdown" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Example/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Example/Pods-JBPersistenceStore_Example-acknowledgements.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Example/Pods-JBPersistenceStore_Example.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Example/Pods-JBPersistenceStore_Example.debug.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/YapDatabase/YapDatabase-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/YapDatabase/YapDatabase.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/YapDatabase/YapDatabase-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/YapDatabase/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/YapDatabase/YapDatabase.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Tests/Pods-JBPersistenceStore_Tests.release.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Tests/Pods-JBPersistenceStore_Tests-acknowledgements.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Tests/Pods-JBPersistenceStore_Tests-acknowledgements.markdown" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Tests/Pods-JBPersistenceStore_Tests-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Tests/Pods-JBPersistenceStore_Tests-frameworks.sh" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Tests/Pods-JBPersistenceStore_Tests.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Tests/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Tests/Pods-JBPersistenceStore_Tests-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Tests/Pods-JBPersistenceStore_Tests.debug.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-JBPersistenceStore_Tests/Pods-JBPersistenceStore_Tests-resources.sh" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Reachability/Reachability-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Reachability/Reachability.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Reachability/Reachability.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Reachability/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Reachability/Reachability-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Reachability/Reachability-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore-Protocols/JBPersistenceStore-Protocols.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore-Protocols/JBPersistenceStore-Protocols-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore-Protocols/JBPersistenceStore-Protocols-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore-Protocols/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore-Protocols/JBPersistenceStore-Protocols-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/JBPersistenceStore-Protocols/JBPersistenceStore-Protocols.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogCapture.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDAssertMacros.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDLegacyMacros.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDFileLogger.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDAbstractDatabaseLogger.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogCapture.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDLog.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDFileLogger.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDTTYLogger.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDLog.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDLogMacros.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDTTYLogger.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogger.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDMultiFormatter.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDContextFilterLogFormatter.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDDispatchQueueLogFormatter.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDMultiFormatter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDContextFilterLogFormatter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/Extensions/DDDispatchQueueLogFormatter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDASLLogger.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDLog+LOGV.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/CocoaLumberjack.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/CocoaLumberjack/Classes/DDAbstractDatabaseLogger.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/YapDatabase.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/YapDatabaseConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapMurmurHash.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapMurmurHash.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapDatabaseQuery.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapCollectionKey.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapCache.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapMutationStack.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapSet.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapCollectionKey.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapCache.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapMutationStack.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapSet.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapDatabaseQuery.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapBidirectionalCache.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapProxyObject.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapBidirectionalCache.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapProxyObject.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapWhitelistBlacklist.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Utilities/YapWhitelistBlacklist.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/YapDatabaseOptions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabaseLogging.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/NSDictionary+YapDatabase.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapMemoryTable.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/NSDictionary+YapDatabase.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapTouch.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabaseManager.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/yap_vfs_shim.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapTouch.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapMemoryTable.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabaseStatement.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabaseManager.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/yap_vfs_shim.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabaseConnectionDefaults.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapNull.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapRowidSet.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabaseLogging.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/NSDate+YapDatabase.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapNull.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapRowidSet.mm" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabaseConnectionDefaults.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/NSDate+YapDatabase.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabasePrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabaseString.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabaseConnectionState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapProxyObjectPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabaseStatement.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Internal/YapDatabaseConnectionState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/YapDatabaseTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/YapDatabase.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Protocol/YapDatabaseExtensionTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Protocol/YapDatabaseExtensionTypes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Protocol/YapDatabaseExtensionConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Protocol/Internal/YapDatabaseExtensionPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Protocol/YapDatabaseExtensionConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Protocol/YapDatabaseExtension.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Protocol/YapDatabaseExtension.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Protocol/YapDatabaseExtensionTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndexTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndexSetup.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndexHandler.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndexOptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/Internal/YapDatabaseRTreeIndexPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndexTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndexConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndexHandler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndex.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndexConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndexSetup.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndexOptions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/RTreeIndex/YapDatabaseRTreeIndex.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CrossProcessNotification/YapDatabaseCrossProcessNotificationConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CrossProcessNotification/Internal/YapDatabaseCrossProcessNotificationPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CrossProcessNotification/YapDatabaseCrossProcessNotificationTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CrossProcessNotification/YapDatabaseCrossProcessNotificationTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CrossProcessNotification/YapDatabaseCrossProcessNotificationConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CrossProcessNotification/YapDatabaseCrossProcessNotification.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CrossProcessNotification/YapDatabaseCrossProcessNotification.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FullTextSearch/YapDatabaseFullTextSearchSnippetOptions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FullTextSearch/YapDatabaseFullTextSearch.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FullTextSearch/YapDatabaseFullTextSearchTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FullTextSearch/Internal/YapDatabaseFullTextSearchPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FullTextSearch/YapDatabaseFullTextSearchSnippetOptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FullTextSearch/YapDatabaseFullTextSearchConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FullTextSearch/YapDatabaseFullTextSearch.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FullTextSearch/YapDatabaseFullTextSearchHandler.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FullTextSearch/YapDatabaseFullTextSearchConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FullTextSearch/YapDatabaseFullTextSearchHandler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FullTextSearch/YapDatabaseFullTextSearchTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Utilities/YapDatabaseViewRangeOptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Utilities/YapDatabaseViewMappings.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Utilities/YapDatabaseViewChange.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Utilities/YapDatabaseViewRangeOptions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Utilities/YapDatabaseViewMappings.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Utilities/YapDatabaseViewChange.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/YapDatabaseViewOptions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Internal/YapDatabaseViewRangeOptionsPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Internal/YapDatabaseViewPage.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Internal/YapDatabaseViewMappingsPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Internal/YapDatabaseViewState.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Internal/YapDatabaseViewPage.mm" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Internal/YapDatabaseViewPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Internal/YapDatabaseViewPageMetadata.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Internal/YapDatabaseViewChangePrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Internal/YapDatabaseViewPageMetadata.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/Internal/YapDatabaseViewState.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/YapDatabaseViewTypes.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/YapDatabaseViewConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/YapDatabaseView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/YapDatabaseViewTypes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/YapDatabaseViewTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/YapDatabaseViewConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/YapDatabaseViewOptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/YapDatabaseViewTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Views/YapDatabaseView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndexOptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndexSetup.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndexConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/Internal/YapDatabaseSecondaryIndexPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndex.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndexHandler.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndexConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndexOptions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndex.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndexTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndexSetup.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndexTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SecondaryIndex/YapDatabaseSecondaryIndexHandler.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ActionManager/YapDatabaseActionManagerConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ActionManager/YapDatabaseActionManagerConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ActionManager/Internal/YapActionItemPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ActionManager/Internal/YapDatabaseActionManagerPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ActionManager/YapDatabaseActionManagerTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ActionManager/YapActionItem.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ActionManager/YapActionable.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ActionManager/YapDatabaseActionManagerTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ActionManager/YapDatabaseActionManager.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ActionManager/YapActionItem.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ActionManager/YapDatabaseActionManager.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/YapDatabaseCloudKitTypes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/YapDatabaseCloudKit.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Utilities/YDBCKRecordInfo.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Utilities/YDBCKRecordInfo.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Utilities/YDBCKMergeInfo.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Utilities/YDBCKRecord.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Utilities/YDBCKChangeSet.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Utilities/YDBCKRecord.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Utilities/YDBCKMergeInfo.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Utilities/YDBCKChangeSet.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/YapDatabaseCloudKit.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Internal/YDBCKRecordTableInfo.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Internal/YDBCKChangeRecord.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Internal/YDBCKChangeQueue.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Internal/YDBCKAttachRequest.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Internal/YDBCKChangeRecord.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Internal/YDBCKMappingTableInfo.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Internal/YDBCKAttachRequest.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Internal/YapDatabaseCloudKitPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Internal/YDBCKMappingTableInfo.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Internal/YDBCKRecordTableInfo.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/Internal/YDBCKChangeQueue.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/YapDatabaseCloudKitConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/YapDatabaseCloudKitConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/YapDatabaseCloudKitTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/YapDatabaseCloudKitOptions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/YapDatabaseCloudKitTypes.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/YapDatabaseCloudKitTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/CloudKit/YapDatabaseCloudKitOptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FilteredViews/YapDatabaseFilteredViewTypes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FilteredViews/YapDatabaseFilteredViewConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FilteredViews/YapDatabaseFilteredView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FilteredViews/YapDatabaseFilteredViewTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FilteredViews/Internal/YapDatabaseFilteredViewPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FilteredViews/YapDatabaseFilteredViewConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FilteredViews/YapDatabaseFilteredView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FilteredViews/YapDatabaseFilteredViewTypes.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/FilteredViews/YapDatabaseFilteredViewTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/YapDatabaseRelationshipEdge.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/Internal/YapDatabaseRelationshipEdgePrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/Internal/YapDatabaseRelationshipPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/YapDatabaseRelationship.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/YapDatabaseRelationshipOptions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/YapDatabaseRelationshipConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/YapDatabaseRelationshipNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/YapDatabaseRelationshipTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/YapDatabaseRelationship.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/YapDatabaseRelationshipOptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/YapDatabaseRelationshipEdge.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/YapDatabaseRelationshipTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Relationships/YapDatabaseRelationshipConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Hooks/YapDatabaseHooks.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Hooks/Internal/YapDatabaseHooksPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Hooks/YapDatabaseHooksConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Hooks/YapDatabaseHooksTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Hooks/YapDatabaseHooksConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Hooks/YapDatabaseHooksTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/Hooks/YapDatabaseHooks.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/YapDatabaseSearchResultsViewOptions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/YapDatabaseSearchQueue.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/Internal/YapDatabaseSearchQueuePrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/Internal/YapDatabaseSearchResultsViewPrivate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/YapDatabaseSearchResultsViewConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/YapDatabaseSearchResultsViewTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/YapDatabaseSearchResultsView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/YapDatabaseSearchResultsViewConnection.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/YapDatabaseSearchResultsViewTransaction.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/YapDatabaseSearchResultsViewOptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/YapDatabaseSearchQueue.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/SearchResults/YapDatabaseSearchResultsView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ConnectionProxy/YapDatabaseConnectionProxy.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/Extensions/ConnectionProxy/YapDatabaseConnectionProxy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/YapDatabaseOptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/YapDatabaseConnection.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/YapDatabase/YapDatabase/YapDatabaseTransaction.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Reachability/Reachability.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Reachability/Reachability.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../JBPersistenceStore.podspec" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../JBPersistenceStore-Protocols">
+      <sourceFolder url="file://$MODULE_DIR$/../../JBPersistenceStore-Protocols/JBPersistenceStore-Protocols/Classes/CanBePersistedProtocol.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../JBPersistenceStore-Protocols/JBPersistenceStore-Protocols/Classes/CanBeIdentifiedProtocol.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../JBPersistenceStore-Protocols/JBPersistenceStore-Protocols/Classes/PersistenceStoreProtocol.swift" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file:///Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Frameworks/InterfaceBuilderKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Frameworks/DTPerformanceSession.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HealthKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PassKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreAudioKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MultipeerConnectivity.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AssetsLibrary.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WatchConnectivity.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreVideo.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/StoreKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SceneKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/OpenGLES.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CFNetwork.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Frameworks/vImage.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AddressBookUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WatchKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GSS.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AudioUnit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreSpotlight.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/LocalAuthentication.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HealthKitUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Metal.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/VideoToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Contacts.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuickLook.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SafariServices.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameplayKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WebKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CloudKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreImage.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKitUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Photos.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MetalPerformanceShaders.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/JavaScriptCore.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PushKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreTelephony.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ReplayKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SpriteKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Twitter.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NetworkExtension.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreAudio.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreData.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Foundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MapKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ContactsUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaAccessibility.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ExternalAccessory.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ModelIO.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GLKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MetalKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HomeKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameController.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreBluetooth.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AdSupport.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMIDI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Social.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accounts.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/OpenAL.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NotificationCenter.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ImageIO.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PhotosUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MobileCoreServices.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AddressBook.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NewsstandKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MessageUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreLocation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuartzCore.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/iAd.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.3.0/include" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file:///Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Frameworks/InterfaceBuilderKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Frameworks/DTPerformanceSession.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HealthKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PassKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreAudioKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MultipeerConnectivity.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AssetsLibrary.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WatchConnectivity.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreVideo.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/StoreKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SceneKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/OpenGLES.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CFNetwork.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Frameworks/vImage.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AddressBookUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WatchKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GSS.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AudioUnit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreSpotlight.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/LocalAuthentication.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HealthKitUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Metal.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/VideoToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Contacts.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuickLook.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SafariServices.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameplayKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/WebKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CloudKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreImage.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKitUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Photos.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MetalPerformanceShaders.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/JavaScriptCore.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PushKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreTelephony.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ReplayKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SpriteKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Twitter.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NetworkExtension.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreAudio.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreData.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Foundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MapKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ContactsUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaAccessibility.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ExternalAccessory.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ModelIO.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GLKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MetalKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HomeKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameController.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreBluetooth.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AdSupport.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMIDI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Social.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accounts.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/OpenAL.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NotificationCenter.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/ImageIO.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PhotosUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MobileCoreServices.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AddressBook.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/NewsstandKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MessageUI.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameKit.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreLocation.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuartzCore.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/iAd.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.3.0/include" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

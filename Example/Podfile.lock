@@ -1,0 +1,95 @@
+PODS:
+  - CocoaLumberjack (2.3.0):
+    - CocoaLumberjack/Default (= 2.3.0)
+    - CocoaLumberjack/Extensions (= 2.3.0)
+  - CocoaLumberjack/Core (2.3.0)
+  - CocoaLumberjack/Default (2.3.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.3.0):
+    - CocoaLumberjack/Default
+  - JBPersistenceStore (0.1.0):
+    - JBPersistenceStore-Protocols
+    - ValueCoding
+    - YapDatabase
+  - JBPersistenceStore-Protocols (0.1.0)
+  - Reachability (3.2)
+  - ValueCoding (1.3.0)
+  - YapDatabase (2.9):
+    - YapDatabase/Standard (= 2.9)
+  - YapDatabase/Standard (2.9):
+    - YapDatabase/Standard/Core (= 2.9)
+    - YapDatabase/Standard/Extensions (= 2.9)
+  - YapDatabase/Standard/Core (2.9):
+    - CocoaLumberjack (~> 2)
+  - YapDatabase/Standard/Extensions (2.9):
+    - YapDatabase/Standard/Core
+    - YapDatabase/Standard/Extensions/ActionManager (= 2.9)
+    - YapDatabase/Standard/Extensions/CloudKit (= 2.9)
+    - YapDatabase/Standard/Extensions/ConnectionProxy (= 2.9)
+    - YapDatabase/Standard/Extensions/CrossProcessNotification (= 2.9)
+    - YapDatabase/Standard/Extensions/FilteredViews (= 2.9)
+    - YapDatabase/Standard/Extensions/FullTextSearch (= 2.9)
+    - YapDatabase/Standard/Extensions/Hooks (= 2.9)
+    - YapDatabase/Standard/Extensions/Relationships (= 2.9)
+    - YapDatabase/Standard/Extensions/RTreeIndex (= 2.9)
+    - YapDatabase/Standard/Extensions/SearchResults (= 2.9)
+    - YapDatabase/Standard/Extensions/SecondaryIndex (= 2.9)
+    - YapDatabase/Standard/Extensions/Views (= 2.9)
+  - YapDatabase/Standard/Extensions/ActionManager (2.9):
+    - Reachability (~> 3)
+    - YapDatabase/Standard/Core
+    - YapDatabase/Standard/Extensions/Views
+  - YapDatabase/Standard/Extensions/CloudKit (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/ConnectionProxy (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/CrossProcessNotification (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/FilteredViews (2.9):
+    - YapDatabase/Standard/Core
+    - YapDatabase/Standard/Extensions/Views
+  - YapDatabase/Standard/Extensions/FullTextSearch (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/Hooks (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/Relationships (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/RTreeIndex (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/SearchResults (2.9):
+    - YapDatabase/Standard/Core
+    - YapDatabase/Standard/Extensions/FullTextSearch
+    - YapDatabase/Standard/Extensions/Views
+  - YapDatabase/Standard/Extensions/SecondaryIndex (2.9):
+    - YapDatabase/Standard/Core
+  - YapDatabase/Standard/Extensions/Views (2.9):
+    - YapDatabase/Standard/Core
+
+DEPENDENCIES:
+  - JBPersistenceStore (from `../`)
+  - JBPersistenceStore-Protocols (from `../../JBPersistenceStore-Protocols`)
+  - YapDatabase (from `https://github.com/yapstudios/YapDatabase.git`, commit `dfb5d29ec6dca054ccca9c0b16e7ead476d5b395`)
+
+EXTERNAL SOURCES:
+  JBPersistenceStore:
+    :path: "../"
+  JBPersistenceStore-Protocols:
+    :path: "../../JBPersistenceStore-Protocols"
+  YapDatabase:
+    :commit: dfb5d29ec6dca054ccca9c0b16e7ead476d5b395
+    :git: https://github.com/yapstudios/YapDatabase.git
+
+CHECKOUT OPTIONS:
+  YapDatabase:
+    :commit: dfb5d29ec6dca054ccca9c0b16e7ead476d5b395
+    :git: https://github.com/yapstudios/YapDatabase.git
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
+  JBPersistenceStore: cb9f9d404c8f2911f333dd2841b02600797dd51a
+  JBPersistenceStore-Protocols: 45e33c33f14b153200dffbf8f293e91d1699a86a
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  ValueCoding: 9c9ed6ecdb9cc37f1a8d3fd9f5756953caf5a869
+  YapDatabase: c00f4197bba2fea17bdbd82c8e8e3f7104b6fa67
+
+COCOAPODS: 0.39.0

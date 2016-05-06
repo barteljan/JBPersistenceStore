@@ -1,11 +1,26 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://gitlab.atino.net/appls/atinopodspecrepo.git'
 use_frameworks!
+platform :ios, '8.0'
 
 target 'JBPersistenceStore_Example', :exclusive => true do
+  
+  pod 'JBPersistenceStore-Protocols', :path => '../../JBPersistenceStore-Protocols'
   pod 'JBPersistenceStore', :path => '../'
+  
+  pod 'YapDatabase', :git => 'https://github.com/yapstudios/YapDatabase.git', :commit => 'dfb5d29ec6dca054ccca9c0b16e7ead476d5b395'
 end
 
 target 'JBPersistenceStore_Tests', :exclusive => true do
+    
+  pod 'JBPersistenceStore-Protocols', :path => '../../JBPersistenceStore-Protocols'
   pod 'JBPersistenceStore', :path => '../'
-
+  pod 'YapDatabase', :git => 'https://github.com/yapstudios/YapDatabase.git', :commit => 'dfb5d29ec6dca054ccca9c0b16e7ead476d5b395'
   
+end
+
+post_install do |installer|
+    installer.pods_project.build_configuration_list.build_configurations.each do |configuration|
+        configuration.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+    end
 end
