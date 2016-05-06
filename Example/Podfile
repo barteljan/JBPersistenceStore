@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'JBPersistenceStore_Example', :exclusive => true do
+  pod 'JBPersistenceStore', :path => '../'
+end
+
+target 'JBPersistenceStore_Tests', :exclusive => true do
+  pod 'JBPersistenceStore', :path => '../'
+
+  
+end
