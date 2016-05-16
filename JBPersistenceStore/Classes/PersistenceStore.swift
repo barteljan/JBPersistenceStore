@@ -58,19 +58,49 @@ public class PersistenceStore : PersistenceStoreProtocol{
     }
     
     
+    public func persist(item: protocol<CanBePersistedProtocol,NSCoding>) -> protocol<CanBePersistedProtocol,NSCoding> {
+    
+        self.writeConnection.readWriteWithBlock { (transaction : YapDatabaseReadWriteTransaction) in
+            let collection = item.self.dynamicType.collectionName()
+            transaction.setObject(item, forKey: item.identifier(), inCollection: collection)
+        }
+        
+        return item
+        
+    }
+    
+    public func delete(identifier: String, type: CanBePersistedProtocol.Type){
+        
+        let collection = type.collectionName()
+        
+        self.writeConnection.readWriteWithBlock { (transaction : YapDatabaseReadWriteTransaction) in
+            transaction.removeObjectForKey(identifier, inCollection: collection)
+        }
+    }
+    
+    public func delete(item: CanBePersistedProtocol) -> CanBePersistedProtocol{
+        let collection = item.self.dynamicType.collectionName()
+        let identifier = item.identifier()
+        
+        self.writeConnection.readWriteWithBlock { (transaction : YapDatabaseReadWriteTransaction) in
+            transaction.removeObjectForKey(identifier, inCollection: collection)
+        }
+        
+        return item
+    }
     
     public func get<
         T where
         T: CanBePersistedProtocol,
         T: ValueCoding,
         T.Coder: NSCoding,
-        T.Coder.ValueType == T>(key: String) -> T?{
+        T.Coder.ValueType == T>(identifier: String) -> T?{
         
         var item : T?
         
         self.readConnection.readWithBlock { (transaction: YapDatabaseReadTransaction) in
             
-            let coder = transaction.objectForKey(key, inCollection: T.collectionName()) as! T.Coder
+            let coder = transaction.objectForKey(identifier, inCollection: T.collectionName()) as! T.Coder
             item = coder.value
             
         }
@@ -82,12 +112,12 @@ public class PersistenceStore : PersistenceStoreProtocol{
     public func get<
         T where
         T: CanBePersistedProtocol,
-        T: NSCoding>(key: String) -> T?{
+        T: NSCoding>(identifier: String) -> T?{
         
         var item : T?
         
         self.readConnection.readWithBlock { (transaction: YapDatabaseReadTransaction) in
-            item = transaction.objectForKey(key, inCollection: T.collectionName()) as! T
+            item = transaction.objectForKey(identifier, inCollection: T.collectionName()) as! T?
         }
         
         return item
@@ -137,9 +167,9 @@ public class PersistenceStore : PersistenceStoreProtocol{
         T: CanBePersistedProtocol,
         T: ValueCoding,
         T.Coder: NSCoding,
-        T.Coder.ValueType == T>(key : String,type : T.Type) -> Bool{
+        T.Coder.ValueType == T>(identifier : String,type : T.Type) -> Bool{
         
-        let identifier = key
+        let identifier = identifier
         let collection = type.collectionName()
         
         var exists  = false
@@ -155,9 +185,9 @@ public class PersistenceStore : PersistenceStoreProtocol{
     
     public func exists<T where
         T: CanBePersistedProtocol,
-        T: NSCoding>(key : String,type : T.Type) -> Bool{
+        T: NSCoding>(identifier : String,type : T.Type) -> Bool{
         
-        let identifier = key
+        let identifier = identifier
         let collection = type.collectionName()
         
         var exists  = false
@@ -207,7 +237,7 @@ public class PersistenceStore : PersistenceStoreProtocol{
                 items.append(object as! T)
             })
         }
-        
+        print(items)
         return items
     }
 
