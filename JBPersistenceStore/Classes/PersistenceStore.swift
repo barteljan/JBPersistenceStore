@@ -69,7 +69,10 @@ public class PersistenceStore : PersistenceStoreProtocol{
         
     }
     
-    public func delete(identifier: String, type: CanBePersistedProtocol.Type){
+    public func delete<
+        T where
+        T: CanBePersistedProtocol,
+        T: NSCoding>(identifier: String, type: T.Type){
         
         let collection = type.collectionName()
         
@@ -124,6 +127,21 @@ public class PersistenceStore : PersistenceStoreProtocol{
 
     
     }
+    
+    public func get(identifier: String, type: CanBePersistedProtocol.Type) -> CanBePersistedProtocol?
+    {
+        
+        var item : CanBePersistedProtocol?
+        
+        self.readConnection.readWithBlock { (transaction: YapDatabaseReadTransaction) in
+            let collectionName = type.collectionName()
+            item = transaction.objectForKey(identifier, inCollection:collectionName) as! CanBePersistedProtocol?
+        }
+        
+        return item
+        
+    }
+
     
 
     public func exists<T where
