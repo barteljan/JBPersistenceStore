@@ -255,7 +255,7 @@ public class PersistenceStore : PersistenceStoreProtocol{
                 items.append(object as! T)
             })
         }
-        print(items)
+        
         return items
     }
 
