@@ -21,9 +21,9 @@ public class PersistenceStore : PersistenceStoreProtocol{
     internal let writeConnection : YapDatabaseConnection
     
     public init(databaseFilename: String){
-        let databasePath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0].URLByAppendingPathComponent(databaseFilename + ".sqlite").absoluteString
+        let databasePath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0].URLByAppendingPathComponent(databaseFilename + ".sqlite")!.absoluteString
         
-        self.database = YapDatabase(path: databasePath)
+        self.database = YapDatabase(path: databasePath!)
         self.readConnection  = self.database.newConnection()
         self.writeConnection = self.database.newConnection()
     }
