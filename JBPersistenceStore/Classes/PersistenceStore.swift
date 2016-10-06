@@ -8,8 +8,9 @@
 
 import Foundation
 import YapDatabase
-import ValueCoding
 import YapDatabase.YapDatabaseView
+
+import ValueCoding
 import JBPersistenceStore_Protocols
 
 
@@ -322,13 +323,13 @@ public class PersistenceStore : PersistenceStoreProtocol{
                                                        key: String,
                                                     object: T)->String?),
                               
-                              sortingBlock: ((     group: String,
-                                             collection1: String,
-                                                    key1: String,
-                                                 object1: T,
-                                             collection2: String,
-                                                    key2: String,
-                                                 object2: T) -> NSComparisonResult)){
+                              sortingBlock: ((      group: String,
+                                               collection1: String,
+                                                      key1: String,
+                                                   object1: T,
+                                               collection2: String,
+                                                      key2: String,
+                                                   object2: T) -> NSComparisonResult)){
         
         
         let grouping = YapDatabaseViewGrouping.withRowBlock { (transaction: YapDatabaseReadTransaction,
@@ -342,9 +343,7 @@ public class PersistenceStore : PersistenceStoreProtocol{
             
             let coder = object as! T.Coder
             
-            return groupingBlock(collection:collection,
-                                        key:key,
-                                     object:coder.value)
+            return groupingBlock(collection: collection, key: key, object: coder.value)
         }
         
         
@@ -383,9 +382,9 @@ public class PersistenceStore : PersistenceStoreProtocol{
                         T: CanBePersistedProtocol,
                         T: NSCoding>
         (     viewName: String,
-              groupingBlock:((collection: String,
-                              key: String,
-                              object: T)->String?),
+              groupingBlock:(( collection: String,
+                               key: String,
+                               object: T)->String?),
 
               sortingBlock: ((     group: String,
                                    collection1: String,

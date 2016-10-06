@@ -69,6 +69,7 @@ PODS:
 DEPENDENCIES:
   - JBPersistenceStore (from `../`)
   - JBPersistenceStore-Protocols (from `../../JBPersistenceStore-Protocols`)
+  - YapDatabase
 
 EXTERNAL SOURCES:
   JBPersistenceStore:
@@ -78,12 +79,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
-  JBPersistenceStore: 040b9aebef2ef35809ea5537dbbbcb4b2c412713
+  JBPersistenceStore: f3a761ec3014543b8c7d8bd75e01e271118d8ef6
   JBPersistenceStore-Protocols: 3bc08fcfa49d0c2b4a72c77c89b5b0cba8f43113
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ValueCoding: 26815a330226045e26a29ea0f7f3cd1827eb1449
   YapDatabase: b1e43555a34a5298e23a045be96817a5ef0da58f
 
-PODFILE CHECKSUM: ffe4107c8843328f90f3502ccb25d51e604f85d3
+PODFILE CHECKSUM: f42cd2c8f365c0706a37a3c33fee807e1649bb11
 
 COCOAPODS: 1.1.0.rc.2
