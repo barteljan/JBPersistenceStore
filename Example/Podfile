@@ -3,19 +3,19 @@ source 'https://gitlab.atino.net/appls/atinopodspecrepo.git'
 use_frameworks!
 platform :ios, '8.0'
 
-target 'JBPersistenceStore_Example', :exclusive => true do
+target 'JBPersistenceStore_Example' do
   
   pod 'JBPersistenceStore-Protocols', :path => '../../JBPersistenceStore-Protocols'
   pod 'JBPersistenceStore', :path => '../'
   
-  pod 'YapDatabase', :git => 'https://github.com/yapstudios/YapDatabase.git', :commit => 'dfb5d29ec6dca054ccca9c0b16e7ead476d5b395'
+  #pod 'YapDatabase', :git => 'https://github.com/yapstudios/YapDatabase.git', :commit => 'dfb5d29ec6dca054ccca9c0b16e7ead476d5b395'
 end
 
-target 'JBPersistenceStore_Tests', :exclusive => true do
+target 'JBPersistenceStore_Tests' do
     
   pod 'JBPersistenceStore-Protocols', :path => '../../JBPersistenceStore-Protocols'
   pod 'JBPersistenceStore', :path => '../'
-  pod 'YapDatabase', :git => 'https://github.com/yapstudios/YapDatabase.git', :commit => 'dfb5d29ec6dca054ccca9c0b16e7ead476d5b395'
+  #pod 'YapDatabase', :git => 'https://github.com/yapstudios/YapDatabase.git', :commit => 'dfb5d29ec6dca054ccca9c0b16e7ead476d5b395'
   
 end
 

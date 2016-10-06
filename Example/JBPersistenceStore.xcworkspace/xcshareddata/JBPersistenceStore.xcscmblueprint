@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DB6186E94D5EE6681890634C56F36CDB4D41FC40",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B407281FD9B791ED9231D8103C834C235A22887E" : 9223372036854775807,
+    "DB6186E94D5EE6681890634C56F36CDB4D41FC40" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "57F30334-38E5-42AE-9436-B2E14B55223F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B407281FD9B791ED9231D8103C834C235A22887E" : "JBPersistenceStore-Protocols\/",
+    "DB6186E94D5EE6681890634C56F36CDB4D41FC40" : "JBPersistenceStore\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "JBPersistenceStore",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/JBPersistenceStore.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/barteljan\/JBPersistenceStore-Protocols.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B407281FD9B791ED9231D8103C834C235A22887E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/barteljan\/JBPersistenceStore.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DB6186E94D5EE6681890634C56F36CDB4D41FC40"
+    }
+  ]
+}

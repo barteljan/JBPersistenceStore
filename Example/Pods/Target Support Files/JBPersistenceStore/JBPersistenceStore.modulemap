@@ -1,6 +1,0 @@
-framework module JBPersistenceStore {
-  umbrella header "JBPersistenceStore-umbrella.h"
-
-  export *
-  module * { export * }
-}

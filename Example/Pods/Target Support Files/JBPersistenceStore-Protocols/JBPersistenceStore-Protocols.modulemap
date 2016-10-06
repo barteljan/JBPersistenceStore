@@ -1,6 +1,0 @@
-framework module JBPersistenceStore_Protocols {
-  umbrella header "JBPersistenceStore-Protocols-umbrella.h"
-
-  export *
-  module * { export * }
-}
