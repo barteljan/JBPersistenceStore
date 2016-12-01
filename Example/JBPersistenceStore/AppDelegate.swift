@@ -17,8 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let store = PersistenceStore(databaseFilename: "app")
-        print(store)
+        let store1 = PersistenceStore(databaseFilename: "app")
+                
+        let store2 = PersistenceStore(databaseFilename: "app2", version: 1) { (oldVersion: Int, newVersion:Int) in
+            print("oldVersion: \(oldVersion) converted to newVersion:\(newVersion)")
+        }
+        
+        print("The current version of store1 is \(store1.version())")
+        print("The current version of store2 is \(store2.version())")
         
         return true
     }

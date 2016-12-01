@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "JBPersistenceStore"
-  s.version          = "0.2.3"
+  s.version          = "0.2.5"
   s.summary          = "A persistence store for storing your models in a yapdatabase"
 
   s.description      = <<-DESC
@@ -17,7 +17,7 @@ A persistence store for storing your models in a yapdatabase.
 
   s.source_files = 'JBPersistenceStore/Classes/**/*'
 
-  s.dependency 'YapDatabase'
+  s.dependency 'YapDatabase/Standard'
   s.dependency 'ValueCoding','1.5.0'
   s.dependency 'JBPersistenceStore-Protocols','0.2.3'
 end

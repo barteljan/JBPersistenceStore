@@ -8,7 +8,6 @@ abstract_target 'JBPersistenceStore' do
     
     pod 'JBPersistenceStore-Protocols', :path => '../../JBPersistenceStore-Protocols'
     pod 'JBPersistenceStore', :path => '../'
-    pod 'YapDatabase'
     
     target 'JBPersistenceStore_Example' do
     end

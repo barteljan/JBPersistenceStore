@@ -21,15 +21,48 @@ public class PersistenceStore : PersistenceStoreProtocol{
     internal let readConnection : YapDatabaseConnection
     internal let writeConnection : YapDatabaseConnection
     
-    public init(databaseFilename: String){
+    var _version : Int
+    var changeVersionHandler : ((Int,Int) -> Void)!
+    
+    
+    public convenience init(databaseFilename: String){
+        self.init(databaseFilename: databaseFilename, version: 0, changeVersionHandler: {(oldVersion: Int,newVerion: Int) -> Void in })
+    }
+    
+    public init(databaseFilename: String, version : Int ,changeVersionHandler: ((Int,Int) -> Void)?){
         let databasePath = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0].URLByAppendingPathComponent(databaseFilename + ".sqlite")!.absoluteString
         
         self.database = YapDatabase(path: databasePath!)
         self.readConnection  = self.database.newConnection()
         self.writeConnection = self.database.newConnection()
+        
+        if let versionHandler = changeVersionHandler{
+            self.changeVersionHandler = versionHandler
+        }else{
+            self.changeVersionHandler = {(oldVersion: Int,newVerion: Int) -> Void in }
+        }
+        
+        self._version = version
+        
+        var userDefaultsKey = "\(databaseFilename)_JB_PERSISTENCE_STORE_DB_VERSION"
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        var oldVersion : Int = userDefaults.integerForKey(userDefaultsKey)
+            
+        if(self._version != oldVersion){
+            userDefaults.setInteger(self._version, forKey: userDefaultsKey)
+            userDefaults.synchronize()
+            self.changeVersionHandler(oldVersion,self._version)
+        }
+        
     }
     
+    public func version() -> Int{
+        return self._version
+    }
     
+       
     public func persist<
         T where
         T: CanBePersistedProtocol,
