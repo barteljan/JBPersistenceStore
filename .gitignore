@@ -1,5 +1,6 @@
 Example/Pods/*
 .idea/*
+Example/.idea/*
 
 # OS X
 .DS_Store
