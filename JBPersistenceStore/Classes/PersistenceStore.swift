@@ -5,7 +5,88 @@
 //  Created by Jan Bartel on 27.03.16.
 //
 //
+import JBPersistenceStore_Protocols
 
+/*
+
+open class PersistenceStore : AnyPersistenceStore, PersistenceStoreProtocol{
+
+    
+    public convenience init(databaseFilename: String){
+        self.init(databaseFilename: databaseFilename, version: 0, changeVersionHandler: {(oldVersion: Int,newVerion: Int) -> Void in })
+    }
+    
+    public init(databaseFilename: String, version : Int ,changeVersionHandler: ((Int,Int) -> Void)?){
+        
+              
+        super.init(version: version,changeVersionHandler: changeVersionHandler)
+        
+    }
+    
+    public func persist<T>(_ item: T) -> T {
+        return item
+    }
+    
+    public func delete<T>(_ item: T) -> T {
+        return item
+    }
+
+    public override func get<T>(_ identifier: String) -> T? {
+        return nil
+    }
+    
+    public override func get<T>(_ identifier: String, type: T.Type) -> T? {
+        return nil
+    }
+
+    public override func exists<T>(_ item : T) -> Bool {
+        return false
+    }
+    
+    public override func exists<T>(_ identifier : String,type : T.Type) -> Bool {
+        return false
+    }
+    
+    public override func filter <T>(_ type: T.Type, includeElement: @escaping (T) -> Bool) -> [T] {
+        return [T]()
+    }
+    
+    public override func addView<T>
+        (     _ viewName: String,
+              groupingBlock: @escaping ((_ collection: String,
+        _ key: String,
+        _ object: T)->String?),
+              
+              sortingBlock: @escaping ((     _ group: String,
+        _ collection1: String,
+        _ key1: String,
+        _ object1: T,
+        _ collection2: String,
+        _ key2: String,
+        _ object2: T) throws -> ComparisonResult)){
+    
+    
+    }
+    
+    public override func getAll<T>(_ type: T.Type) -> [T] {
+        return [T]()
+    }
+    
+    public override func getAll<T>(_ viewName:String)->[T]{
+        return [T]()
+    }
+    
+    public override func getAll<T>(_ viewName:String,groupName:String)->[T]{
+        return [T]()
+    }
+    
+}
+
+*/
+
+
+
+/*
 import Foundation
 import YapDatabase
 import YapDatabase.YapDatabaseView
@@ -550,3 +631,4 @@ open class PersistenceStore : PersistenceStoreProtocol{
     }
 
 }
+*/

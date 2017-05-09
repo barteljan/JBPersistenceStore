@@ -8,6 +8,7 @@
 
 import UIKit
 import JBPersistenceStore
+import JBPersistenceStore_Protocols
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,19 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        let store1 = PersistenceStore(databaseFilename: "app")
-
-        let store2 = PersistenceStore(databaseFilename: "app2", version: 1) { (oldVersion: Int, newVersion:Int) in
-            print("oldVersion: \(oldVersion) converted to newVersion:\(newVersion)")
+        
+        /*
+        let store = AnyPersistenceStore(version: 0) { (old: Int, new: Int) in
+            
         }
-
-        print("The current version of store1 is \(store1.version())")
-        print("The current version of store2 is \(store2.version())")
-
+        
+        let codingStore = NSCodingPersistenceStore(databaseFilename: "db", version: 0)
+        store.add(factory: )
+        
+        return true
+         */
         return true
     }
 
 
 }
+
+
 
