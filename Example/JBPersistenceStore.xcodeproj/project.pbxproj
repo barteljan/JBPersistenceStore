@@ -14,10 +14,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		703EEC04BD89BF122943DBA8 /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A745670E7A5267D6437F840A /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework */; };
-		9A5D8B811EC2473100AE3E20 /* PersistenceStoreServiceProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D8B801EC2473100AE3E20 /* PersistenceStoreServiceProviderTest.swift */; };
-		9ADD5E5F1EC0CCD600F9DC38 /* AnyPersistenceStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD5E5E1EC0CCD600F9DC38 /* AnyPersistenceStoreTests.swift */; };
 		9ADD5E6B1EC0D12400F9DC38 /* NSCodingPersitenceStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD5E6A1EC0D12400F9DC38 /* NSCodingPersitenceStoreTests.swift */; };
-		9ADD5E6F1EC0D36500F9DC38 /* TypedPersistenceStoreProxyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD5E6E1EC0D36500F9DC38 /* TypedPersistenceStoreProxyTest.swift */; };
 		9ADD5E711EC0D3FB00F9DC38 /* TestPersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD5E701EC0D3FB00F9DC38 /* TestPersistable.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,12 +41,9 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6B589AFDD7ADC8BF112F11E0 /* JBPersistenceStore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JBPersistenceStore.podspec; path = ../JBPersistenceStore.podspec; sourceTree = "<group>"; };
 		75F58EB19B5244D3749BA6F4 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig"; sourceTree = "<group>"; };
-		9A5D8B801EC2473100AE3E20 /* PersistenceStoreServiceProviderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceStoreServiceProviderTest.swift; sourceTree = "<group>"; };
 		9ADD5E5C1EC0CCD600F9DC38 /* JBPersistenceStore_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JBPersistenceStore_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9ADD5E5E1EC0CCD600F9DC38 /* AnyPersistenceStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPersistenceStoreTests.swift; sourceTree = "<group>"; };
 		9ADD5E601EC0CCD600F9DC38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9ADD5E6A1EC0D12400F9DC38 /* NSCodingPersitenceStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCodingPersitenceStoreTests.swift; sourceTree = "<group>"; };
-		9ADD5E6E1EC0D36500F9DC38 /* TypedPersistenceStoreProxyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedPersistenceStoreProxyTest.swift; sourceTree = "<group>"; };
 		9ADD5E701EC0D3FB00F9DC38 /* TestPersistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPersistable.swift; sourceTree = "<group>"; };
 		A745670E7A5267D6437F840A /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B45C0018EF0F4917C3990D /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,11 +147,8 @@
 		9ADD5E5D1EC0CCD600F9DC38 /* JBPersistenceStore_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				9A5D8B801EC2473100AE3E20 /* PersistenceStoreServiceProviderTest.swift */,
-				9ADD5E5E1EC0CCD600F9DC38 /* AnyPersistenceStoreTests.swift */,
 				9ADD5E601EC0CCD600F9DC38 /* Info.plist */,
 				9ADD5E6A1EC0D12400F9DC38 /* NSCodingPersitenceStoreTests.swift */,
-				9ADD5E6E1EC0D36500F9DC38 /* TypedPersistenceStoreProxyTest.swift */,
 				9ADD5E701EC0D3FB00F9DC38 /* TestPersistable.swift */,
 			);
 			path = JBPersistenceStore_Tests;
@@ -376,10 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ADD5E6B1EC0D12400F9DC38 /* NSCodingPersitenceStoreTests.swift in Sources */,
-				9A5D8B811EC2473100AE3E20 /* PersistenceStoreServiceProviderTest.swift in Sources */,
-				9ADD5E5F1EC0CCD600F9DC38 /* AnyPersistenceStoreTests.swift in Sources */,
 				9ADD5E711EC0D3FB00F9DC38 /* TestPersistable.swift in Sources */,
-				9ADD5E6F1EC0D36500F9DC38 /* TypedPersistenceStoreProxyTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
