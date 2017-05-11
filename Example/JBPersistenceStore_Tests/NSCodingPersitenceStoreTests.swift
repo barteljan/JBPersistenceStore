@@ -355,4 +355,180 @@ class NSCodingPersitenceStoreTests: XCTestCase {
         XCTAssertTrue(exists)
     }
     
+    
+    func testFilter(){
+        
+        let store = self.createStore()
+        
+        let persistable = TestPersistable(id: "666",
+                                          title: "Testtitel")
+        
+        try! store.persist(persistable)
+        
+        let persistable2 = TestPersistable(id: "667",
+                                           title: "Testtitel2")
+        try! store.persist(persistable2)
+        
+        
+        let item667 = try! store.filter(TestPersistable.self, includeElement: { (item:TestPersistable) -> Bool in
+    
+            return item.id == "667"
+        }).first
+        
+        XCTAssertNotNil(item667)
+
+        
+    }
+    
+    func testAsyncFiler(){
+        
+        let store = self.createStore()
+        
+        let persistable = TestPersistable(id: "666",
+                                          title: "Testtitel")
+        
+        try! store.persist(persistable)
+        
+        let persistable2 = TestPersistable(id: "667",
+                                           title: "Testtitel2")
+        try! store.persist(persistable2)
+        
+        
+        let expect = expectation(description: "get all async")
+        
+        try! store.filter(TestPersistable.self,
+                          includeElement: { (item:TestPersistable) -> Bool in
+            
+                            return item.id == "667"
+            }, completion: { (items: [TestPersistable]) in
+            
+            let item667 = items.first
+            XCTAssertNotNil(item667)
+            expect.fulfill()
+        })
+        
+        waitForExpectations(timeout: 3) { (error:Error?) in
+            if let error = error {
+                XCTFail("complete callback not called: \(error)")
+            }
+        }
+    }
+
+    
+    func addView(store: NSCodingPersistenceStore) throws {
+        
+        try! store.addView("TestPersistablesByIdType",
+                            groupingBlock: { (collection:String, key:String,
+                                                  object: TestPersistable) -> String? in
+                        
+                            if Int(object.id) != nil{
+                                return "isInt"
+                            }else if (object.id == "isNotInView"){
+                                return nil
+                            }else{
+                                return "isNotInt"
+                            }
+                        
+                        
+        }) { (group: String,
+        collection1: String,
+               key1: String,
+            object1: TestPersistable,
+        collection2: String,
+               key2: String,
+            object2: TestPersistable) -> ComparisonResult in
+            
+            return key1.compare(key2)
+            
+        }
+    
+    }
+    
+    func testAddView() {
+    
+        let store = self.createStore()
+        do {
+            try self.addView(store: store)
+        }   catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
+    }
+    
+    
+    func testGetAllFromView(){
+        
+        do {
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try store.persist(persistable)
+            
+            let persistable2 = TestPersistable(id: "667",
+                                               title: "Testtitel2")
+            try store.persist(persistable2)
+            
+            let persistable3 = TestPersistable(id: "Das ist keine Zahl",
+                                               title: "Testtitel3")
+            try store.persist(persistable3)
+            
+            let persistable4 = TestPersistable(id: "isNotInView",
+                                               title: "Testtitel4")
+            try store.persist(persistable4)
+            try self.addView(store: store)
+            
+            let items: [TestPersistable] = try store.getAll("TestPersistablesByIdType")
+            XCTAssert(items.count == 3)
+            
+        }   catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
+
+    }
+    
+    func testAsyncGetAllFromView(){
+        
+        do {
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try store.persist(persistable)
+            
+            let persistable2 = TestPersistable(id: "667",
+                                               title: "Testtitel2")
+            try store.persist(persistable2)
+            
+            let persistable3 = TestPersistable(id: "Das ist keine Zahl",
+                                               title: "Testtitel3")
+            try store.persist(persistable3)
+            
+            let persistable4 = TestPersistable(id: "isNotInView",
+                                               title: "Testtitel4")
+            try store.persist(persistable4)
+            try self.addView(store: store)
+            
+            let expect = expectation(description: "filter async")
+            
+            try store.getAll("TestPersistablesByIdType", completion: { (items: [TestPersistable]) in
+                XCTAssert(items.count == 3)
+                expect.fulfill()
+            })
+            
+            waitForExpectations(timeout: 3) { (error:Error?) in
+                if let error = error {
+                    XCTFail("complete callback not called: \(error)")
+                }
+            }
+            
+            
+        }   catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
+        
+    }
+
+    
 }
