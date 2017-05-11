@@ -7,6 +7,6 @@
 //
 import JBPersistenceStore_Protocols
 
-open class PersistenceStore : NSCodingPersistenceStore{
+open class PersistenceStore : NSCodingPersistenceStore, PersistenceStoreProtocol{
 
 }

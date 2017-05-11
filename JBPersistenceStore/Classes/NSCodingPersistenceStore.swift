@@ -13,7 +13,7 @@ import YapDatabase
 import YapDatabase.YapDatabaseView
 
 open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
-        
+            
     public typealias PersistableType = NSCoding & CanBePersistedProtocol
     
     var database : YapDatabase
@@ -75,211 +75,324 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     }
     
     
-    public func persist<T>(_ item: T!) throws where T : PersistableType {
+    public func persist<T>(_ item: T!) throws {
         
-        self.writeConnection.readWrite { (transaction : YapDatabaseReadWriteTransaction) in
-            transaction.setObject(item, forKey: item.identifier(), inCollection: T.collectionName())
+        if let item = item as? PersistableType {
+            self.writeConnection.readWrite { (transaction : YapDatabaseReadWriteTransaction) in
+                transaction.setObject(item, forKey: item.identifier(), inCollection: type(of: item).collectionName())
+            }
+        } else {
+            throw PersistenceStoreError.CannotUse(object : item, inStoreWithType: PersistableType.Type.self)
         }
     
     }
     
-    public func persist<T>(_ item: T!,completion: @escaping () -> ()) throws where T : PersistableType {
+    public func persist<T>(_ item: T!,completion: @escaping () -> ()) throws {
         
-        self.writeConnection.asyncReadWrite({ (transaction :YapDatabaseReadWriteTransaction) in
-            transaction.setObject(item, forKey: item.identifier(), inCollection: T.collectionName())
-        }) { 
-            completion()
+        if let item = item as? PersistableType {
+        
+            self.writeConnection.asyncReadWrite({ (transaction :YapDatabaseReadWriteTransaction) in
+                transaction.setObject(item, forKey: item.identifier(), inCollection: type(of: item).collectionName())
+            }) { 
+                completion()
+            }
+            
+        } else {
+            throw PersistenceStoreError.CannotUse(object : item, inStoreWithType: PersistableType.Type.self)
         }
         
     }
     
-    public func delete<T>(_ item: T!) throws where T : PersistableType {
-        let collection = type(of: item!.self).collectionName()
-        let identifier = item.identifier()
+    public func delete<T>(_ item: T!) throws {
         
-        self.writeConnection.readWrite { (transaction : YapDatabaseReadWriteTransaction) in
-            transaction.removeObject(forKey: identifier, inCollection: collection)
+        if let item = item as? PersistableType {
+          
+            let collection = type(of: item).collectionName()
+            let identifier = item.identifier()
+            
+            self.writeConnection.readWrite { (transaction : YapDatabaseReadWriteTransaction) in
+                transaction.removeObject(forKey: identifier, inCollection: collection)
+            }
+            
+        } else {
+            throw PersistenceStoreError.CannotUse(object : item, inStoreWithType: PersistableType.Type.self)
         }
 
     }
         
     
-    public func delete<T>(_ item: T!, completion: @escaping () -> ()) throws where T : PersistableType{
-        let collection = type(of: item!.self).collectionName()
-        let identifier = item.identifier()
+    public func delete<T>(_ item: T!, completion: @escaping () -> ()) throws {
         
-        self.writeConnection.asyncReadWrite({ (transaction:YapDatabaseReadWriteTransaction) in
+        if let item = item as? PersistableType {
             
-            transaction.removeObject(forKey: identifier, inCollection: collection)
+            let collection = type(of: item).collectionName()
+            let identifier = item.identifier()
             
-        }) {
-            completion()
+            self.writeConnection.asyncReadWrite({ (transaction:YapDatabaseReadWriteTransaction) in
+                
+                transaction.removeObject(forKey: identifier, inCollection: collection)
+                
+            }) {
+                completion()
+            }
+            
+        } else {
+            throw PersistenceStoreError.CannotUse(object : item, inStoreWithType: PersistableType.Type.self)
         }
 
     }
     
-    public func get<T>(_ identifier: String) throws -> T? where T : PersistableType {
+    public func delete<T>(_ identifier: String, type: T.Type) throws {
         
-        var item : T?
-        
-        self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
-            item = transaction.object(forKey: identifier, inCollection: T.collectionName()) as! T?
-        }
-        
-        return item
-
-    }
-    
-    public func get<T>(_ identifier: String, completion: @escaping (_ item: T?) -> Void ) throws where T : PersistableType {
-        
-        var item : T?
-        
-        self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
+        if let type = T.self as? PersistableType.Type {
             
-            item = transaction.object(forKey: identifier, inCollection: T.collectionName()) as! T?
+            let collection = type.collectionName()
             
-        }) {
-            completion(item)
+            self.writeConnection.readWrite { (transaction : YapDatabaseReadWriteTransaction) in
+                transaction.removeObject(forKey: identifier, inCollection: collection)
+            }
+            
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
         
     }
     
-    public func get<T>(_ identifier: String, type: T.Type) throws -> T? where T : PersistableType {
+    public func delete<T>(_ identifier: String, type: T.Type, completion: @escaping () -> ()) throws {
         
-        var item : T?
+        if let type = T.self as? PersistableType.Type {
+            let collection = type.collectionName()
         
-        self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
-            let collectionName = type.collectionName()
-            item = transaction.object(forKey: identifier, inCollection:collectionName) as! T?
+            self.writeConnection.asyncReadWrite({ (transaction:YapDatabaseReadWriteTransaction) in
+                
+                transaction.removeObject(forKey: identifier, inCollection: collection)
+                
+            }) {
+                completion()
+            }
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
-        
-        return item
-        
     }
     
-    public func get<T>(_ identifier: String, type: T.Type, completion: @escaping (_ item: T?) -> Void ) throws where T : PersistableType {
-        
-        var item : T?
-        
-        self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
-            
-            let collectionName = type.collectionName()
-            item = transaction.object(forKey: identifier, inCollection:collectionName) as! T?
-            
-        }) {
-            completion(item)
-        }
-
-    }
     
-    public func getAll<T>(_ type: T.Type) throws -> [T] where T : PersistableType {
-
-        var items : [T] = [T]()
+    public func get<T>(_ identifier: String) throws -> T? {
         
-        let collection = type.collectionName()
         
-        self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
-            transaction.enumerateRows(inCollection: collection, using: { (key: String, object: Any, metadata: Any?, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
-                items.append(object as! T)
-            })
-        }
-        
-        return items
-    }
-    
-    public func getAll<T>(_ type: T.Type, completion: @escaping (_ items: [T]) -> Void) throws where T : PersistableType {
-        
-        var items : [T] = [T]()
-        
-        let collection = type.collectionName()
-        
-        self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
+        if let type = T.self as? PersistableType.Type {
             
-            transaction.enumerateRows(inCollection: collection, using: { (key: String, object: Any, metadata: Any?, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
-                items.append(object as! T)
-            })
+            var item : T?
             
-        }) {
-            completion(items)
+            self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
+                item = transaction.object(forKey: identifier, inCollection: type.collectionName()) as! T?
+            }
+        
+            return item
+            
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
 
     }
     
-    public func getAll<T>(_ viewName:String) throws ->[T] where T : PersistableType {
+    public func get<T>(_ identifier: String, completion: @escaping (_ item: T?) -> Void ) throws {
         
-        var resultArray : Array<T> = [T]()
-        
-        self.readConnection.read { (transaction:YapDatabaseReadTransaction) in
+        if let type = T.self as? PersistableType.Type {
+            var item : T?
             
-            let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as! YapDatabaseViewTransaction
-            if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
-                viewTransaction.enumerateGroups({ (group:String, stop:UnsafeMutablePointer<ObjCBool>) in
-                    viewTransaction.enumerateKeysAndObjects(inGroup: group, with: [], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
+            self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
+                
+                item = transaction.object(forKey: identifier, inCollection: type.collectionName()) as! T?
+                
+            }) {
+                completion(item)
+            }
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
+        
+    }
+    
+    public func get<T>(_ identifier: String, type: T.Type) throws -> T? {
+        
+        if let type = T.self as? PersistableType.Type {
+            var item : T?
+            
+            self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
+                let collectionName = type.collectionName()
+                item = transaction.object(forKey: identifier, inCollection:collectionName) as! T?
+            }
+            
+            return item
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
+        
+    }
+    
+    public func get<T>(_ identifier: String, type: T.Type, completion: @escaping (_ item: T?) -> Void ) throws {
+        
+        if let type = T.self as? PersistableType.Type {
+            var item : T?
+            
+            self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
+                
+                let collectionName = type.collectionName()
+                item = transaction.object(forKey: identifier, inCollection:collectionName) as! T?
+                
+            }) {
+                completion(item)
+            }
+            
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
+
+    }
+    
+    public func getAll<T>(_ type: T.Type) throws -> [T] {
+
+        if let type = T.self as? PersistableType.Type {
+            var items : [T] = [T]()
+            
+            let collection = type.collectionName()
+            
+            self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
+                transaction.enumerateRows(inCollection: collection, using: { (key: String, object: Any, metadata: Any?, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
+                    items.append(object as! T)
+                })
+            }
+            
+            return items
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
+    }
+    
+    public func getAll<T>(_ type: T.Type, completion: @escaping (_ items: [T]) -> Void) throws {
+        
+        if let type = T.self as? PersistableType.Type {
+            
+            var items : [T] = [T]()
+            
+            let collection = type.collectionName()
+            
+            self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
+                
+                transaction.enumerateRows(inCollection: collection, using: { (key: String, object: Any, metadata: Any?, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
+                    items.append(object as! T)
+                })
+                
+            }) {
+                completion(items)
+            }
+            
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
+
+    }
+    
+    public func getAll<T>(_ viewName:String) throws ->[T] {
+        
+        if let type = T.self as? PersistableType.Type {
+        
+            var resultArray : Array<T> = [T]()
+            
+            self.readConnection.read { (transaction:YapDatabaseReadTransaction) in
+                
+                let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as! YapDatabaseViewTransaction
+                if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
+                    viewTransaction.enumerateGroups({ (group:String, stop:UnsafeMutablePointer<ObjCBool>) in
+                        viewTransaction.enumerateKeysAndObjects(inGroup: group, with: [], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
+                            resultArray.append(object as! T)
+                        })
+                    })
+                }
+            }
+            
+            return resultArray
+            
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
+        
+    }
+    
+    public func getAll<T>(_ viewName:String, completion: @escaping (_ items: [T]) -> Void) throws {
+        
+        if let type = T.self as? PersistableType.Type {
+        
+            var resultArray : [T] = [T]()
+            
+            self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
+                
+                let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as! YapDatabaseViewTransaction
+                if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
+                    viewTransaction.enumerateGroups({ (group:String, stop:UnsafeMutablePointer<ObjCBool>) in
+                        viewTransaction.enumerateKeysAndObjects(inGroup: group, with: [], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
+                            resultArray.append(object as! T)
+                        })
+                    })
+                }
+                
+            }) {
+                completion(resultArray)
+            }
+            
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
+
+
+        
+    }
+    
+    public func getAll<T>(_ viewName:String,groupName:String) throws ->[T] {
+        
+        if let type = T.self as? PersistableType.Type {
+        
+            var resultArray = [T]()
+            
+            self.readConnection.read { (transaction:YapDatabaseReadTransaction) in
+                
+                if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
+                    viewTransaction.enumerateKeysAndObjects(inGroup: groupName, with:[], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
+                        
                         resultArray.append(object as! T)
                     })
-                })
+                }
+                
             }
+            
+            return resultArray
+            
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
-        
-        return resultArray
-        
     }
     
-    public func getAll<T>(_ viewName:String, completion: @escaping (_ items: [T]) -> Void) throws where T : PersistableType {
+    public func getAll<T>(_ viewName:String,groupName:String, completion: @escaping (_ items: [T]) -> Void) throws {
         
-        var resultArray : [T] = [T]()
+        if let type = T.self as? PersistableType.Type {
         
-        self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
+            var resultArray : [T] = [T]()
             
-            let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as! YapDatabaseViewTransaction
-            if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
-                viewTransaction.enumerateGroups({ (group:String, stop:UnsafeMutablePointer<ObjCBool>) in
-                    viewTransaction.enumerateKeysAndObjects(inGroup: group, with: [], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
+            self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
+                
+                if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
+                    viewTransaction.enumerateKeysAndObjects(inGroup: groupName, with:[], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
+                        
                         resultArray.append(object as! T)
                     })
-                })
+                }
+                
+            }) {
+                completion(resultArray)
             }
             
-        }) {
-            completion(resultArray)
-        }
-
-        
-    }
-    
-    public func getAll<T>(_ viewName:String,groupName:String) throws ->[T] where T : PersistableType {
-        
-        var resultArray = [T]()
-        
-        self.readConnection.read { (transaction:YapDatabaseReadTransaction) in
-            
-            if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
-                viewTransaction.enumerateKeysAndObjects(inGroup: groupName, with:[], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
-                    
-                    resultArray.append(object as! T)
-                })
-            }
-            
-        }
-        
-        return resultArray
-    }
-    
-    public func getAll<T>(_ viewName:String,groupName:String, completion: @escaping (_ items: [T]) -> Void) throws where T : PersistableType {
-        
-        var resultArray : [T] = [T]()
-        
-        self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
-            
-            if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
-                viewTransaction.enumerateKeysAndObjects(inGroup: groupName, with:[], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
-                    
-                    resultArray.append(object as! T)
-                })
-            }
-            
-        }) {
-            completion(resultArray)
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
         
 
@@ -383,12 +496,12 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     
     
     
-    public func filter<T>(_ type: T.Type, includeElement: @escaping (T) -> Bool) throws  -> [T]  where T : PersistableType {
+    public func filter<T>(_ type: T.Type, includeElement: @escaping (T) -> Bool) throws  -> [T] {
         let list = try self.getAll(T.self)
         return list.filter(includeElement)
     }
     
-    public func filter<T>(_ type: T.Type, includeElement: @escaping (T) -> Bool, completion: @escaping (_ items: [T]) -> Void) throws where T : PersistableType {
+    public func filter<T>(_ type: T.Type, includeElement: @escaping (T) -> Bool, completion: @escaping (_ items: [T]) -> Void) throws {
         
         try self.getAll(T.self) { (items : [T]) in
             let filtered = items.filter(includeElement)
@@ -399,45 +512,51 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
 
     public func addView<T>(_ viewName: String, groupingBlock: @escaping ((String, String, T) -> String?), sortingBlock: @escaping ((String, String, String, T, String, String, T) -> ComparisonResult)) throws {
         
-        let grouping = YapDatabaseViewGrouping.withRowBlock { (transaction: YapDatabaseReadTransaction,
-            collection:String,
-            key:String,
-            object:Any,
-            metadata: Any?) -> String? in
-            if(!(object is T)){
-                return nil
+        if let type = T.self as? PersistableType.Type {
+        
+            let grouping = YapDatabaseViewGrouping.withRowBlock { (transaction: YapDatabaseReadTransaction,
+                collection:String,
+                key:String,
+                object:Any,
+                metadata: Any?) -> String? in
+                if(!(object is T)){
+                    return nil
+                }
+                
+                
+                return groupingBlock(collection,key,object as! T)
             }
             
             
-            return groupingBlock(collection,key,object as! T)
+            let sorting = YapDatabaseViewSorting.withRowBlock { (transaction:  YapDatabaseReadTransaction,
+                group:String,
+                collection1: String,
+                key1: String,
+                object1:Any,
+                metadata1:Any?,
+                collection2:String,
+                key2:String,
+                object2:Any,
+                metadata2:Any?) -> ComparisonResult in
+                
+                
+                return sortingBlock(  group,
+                                      collection1,
+                                      key1,
+                                      object1 as! T,
+                                      collection2,
+                                      key2,
+                                      object2 as! T)
+                
+            }
+            
+            let view = YapDatabaseView(grouping: grouping, sorting: sorting)
+            
+            self.database.register(view, withName: viewName)
+            
+        } else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
-        
-        
-        let sorting = YapDatabaseViewSorting.withRowBlock { (transaction:  YapDatabaseReadTransaction,
-            group:String,
-            collection1: String,
-            key1: String,
-            object1:Any,
-            metadata1:Any?,
-            collection2:String,
-            key2:String,
-            object2:Any,
-            metadata2:Any?) -> ComparisonResult in
-            
-            
-            return sortingBlock(  group,
-                                  collection1,
-                                  key1,
-                                  object1 as! T,
-                                  collection2,
-                                  key2,
-                                  object2 as! T)
-            
-        }
-        
-        let view = YapDatabaseView(grouping: grouping, sorting: sorting)
-        
-        self.database.register(view, withName: viewName)
         
     }
 }

@@ -68,380 +68,450 @@ class NSCodingPersitenceStoreTests: XCTestCase {
     }
     
     func testPersistence(){
-        
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        _ = try! store.persist(persistable)
-        
-        let persistable2 : TestPersistable? = try! store.get("666")
-        
-        XCTAssertNotNil(persistable2)
-        XCTAssert(persistable2!.title == "Testtitel")
+        do {
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            _ = try! store.persist(persistable)
+            
+            let persistable2 : TestPersistable? = try! store.get("666")
+            
+            XCTAssertNotNil(persistable2)
+            XCTAssert(persistable2!.title == "Testtitel")
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
         
     }
     
     
     func testAsyncPersistence(){
     
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        
-        let expect = expectation(description: "It should persist it")
-        
-        try! store.persist(persistable, completion: {
-            let persistable2 : TestPersistable? = try! store.get("666")
+        do {
+            let store = self.createStore()
             
-            XCTAssertNotNil(persistable2)
-            XCTAssert(persistable2!.title == "Testtitel")
-            expect.fulfill()
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
             
-        })
-        
-        
-        waitForExpectations(timeout: 3) { (error: Error?) in
-            if let error = error {
-                XCTFail("complete callback not called: \(error)")
+            
+            let expect = expectation(description: "It should persist it")
+            
+            try! store.persist(persistable, completion: {
+                let persistable2 : TestPersistable? = try! store.get("666")
+                
+                XCTAssertNotNil(persistable2)
+                XCTAssert(persistable2!.title == "Testtitel")
+                expect.fulfill()
+                
+            })
+            
+            
+            waitForExpectations(timeout: 3) { (error: Error?) in
+                if let error = error {
+                    XCTFail("complete callback not called: \(error)")
+                }
             }
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
         }
         
     }
     
     
     func testDelete(){
-        
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        try! store.persist(persistable)
-        
-        let persistable2 : TestPersistable? = try! store.get("666")
-        
-        XCTAssertNotNil(persistable2)
-        XCTAssert(persistable2!.title == "Testtitel")
-        
-        try! store.delete(persistable)
-        
-        let persistable3 : TestPersistable? = try! store.get("666")
-        
-        XCTAssertNil(persistable3)
+        do {
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try! store.persist(persistable)
+            
+            let persistable2 : TestPersistable? = try! store.get("666")
+            
+            XCTAssertNotNil(persistable2)
+            XCTAssert(persistable2!.title == "Testtitel")
+            
+            try! store.delete(persistable)
+            
+            let persistable3 : TestPersistable? = try! store.get("666")
+            
+            XCTAssertNil(persistable3)
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
     
     }
     
     func testAsyncDelete(){
         
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        try! store.persist(persistable)
-        
-        let persistable2 : TestPersistable? = try! store.get("666")
-        
-        XCTAssertNotNil(persistable2)
-        XCTAssert(persistable2!.title == "Testtitel")
-        
-        
-        let expect = expectation(description: "It should delete it")
+        do {
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try store.persist(persistable)
+            
+            let persistable2 : TestPersistable? = try! store.get("666")
+            
+            XCTAssertNotNil(persistable2)
+            XCTAssert(persistable2!.title == "Testtitel")
+            
+            
+            let expect = expectation(description: "It should delete it")
 
-        try! store.delete(persistable, completion: {
-            let persistable3 : TestPersistable? = try! store.get("666")
-            XCTAssertNil(persistable3)
-            expect.fulfill()
-        })
-        
-        
-        waitForExpectations(timeout: 3) { (error: Error?) in
-            if let error = error {
-                XCTFail("complete callback not called: \(error)")
+            try store.delete(persistable, completion: {
+                let persistable3 : TestPersistable? = try! store.get("666")
+                XCTAssertNil(persistable3)
+                expect.fulfill()
+            })
+            
+            
+            waitForExpectations(timeout: 3) { (error: Error?) in
+                if let error = error {
+                    XCTFail("complete callback not called: \(error)")
+                }
             }
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
         }
         
     }
     
     func testGetByIdentifier(){
-        let store = self.createStore()
         
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
+        do {
         
-        try! store.persist(persistable)
-        
-        let persistable2 : TestPersistable? = try! store.get("666")
-        XCTAssertNotNil(persistable2)
-        XCTAssert(persistable2!.title == "Testtitel")
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try store.persist(persistable)
+            
+            let persistable2 : TestPersistable? = try store.get("666")
+            XCTAssertNotNil(persistable2)
+            XCTAssert(persistable2!.title == "Testtitel")
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
     }
     
     
     func testAsyncGetByIdentifier(){
-        let store = self.createStore()
         
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
+        do {
         
-        try! store.persist(persistable)
-        
-        let expect = expectation(description: "get async")
-        
-        try! store.get("666", completion: { (item: TestPersistable?) in
-            XCTAssertNotNil(item)
-            XCTAssert(item!.title == "Testtitel")
-            expect.fulfill()
-        })
-        
-        waitForExpectations(timeout: 3) { (error:Error?) in
-            if let error = error {
-                XCTFail("complete callback not called: \(error)")
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try store.persist(persistable)
+            
+            let expect = expectation(description: "get async")
+            
+            try store.get("666", completion: { (item: TestPersistable?) in
+                XCTAssertNotNil(item)
+                XCTAssert(item!.title == "Testtitel")
+                expect.fulfill()
+            })
+            
+            waitForExpectations(timeout: 3) { (error:Error?) in
+                if let error = error {
+                    XCTFail("complete callback not called: \(error)")
+                }
             }
+            
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
         }
         
     }
     
     func testGetByIdentifierAndType(){
-    
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        try! store.persist(persistable)
-        
-        let persistable2 = try! store.get("666", type: TestPersistable.self)
-        XCTAssertNotNil(persistable2)
-        XCTAssert(persistable2!.title == "Testtitel")
+        do {
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try store.persist(persistable)
+            
+            let persistable2 = try store.get("666", type: TestPersistable.self)
+            XCTAssertNotNil(persistable2)
+            XCTAssert(persistable2!.title == "Testtitel")
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
     }
     
     func testAsyncGetByIdentifierAndType(){
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        try! store.persist(persistable)
-        
-        let expect = expectation(description: "get async")
-        
-        try! store.get("666", type: TestPersistable.self, completion: { (item: TestPersistable?) in
-            XCTAssertNotNil(item)
-            XCTAssert(item!.title == "Testtitel")
-            expect.fulfill()
-        })
-        
-        waitForExpectations(timeout: 3) { (error:Error?) in
-            if let error = error {
-                XCTFail("complete callback not called: \(error)")
+        do {
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try store.persist(persistable)
+            
+            let expect = expectation(description: "get async")
+            
+            try store.get("666", type: TestPersistable.self, completion: { (item: TestPersistable?) in
+                XCTAssertNotNil(item)
+                XCTAssert(item!.title == "Testtitel")
+                expect.fulfill()
+            })
+            
+            waitForExpectations(timeout: 3) { (error:Error?) in
+                if let error = error {
+                    XCTFail("complete callback not called: \(error)")
+                }
             }
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
         }
-
     }
     
     func testGetAllByType(){
         
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        try! store.persist(persistable)
-        
-        let persistable2 = TestPersistable(id: "667",
-                                          title: "Testtitel2")
-        try! store.persist(persistable2)
-        
-        let items = try! store.getAll(TestPersistable.self)
-        
-        XCTAssert(items.count == 2)
-        
-        let item667 = items.filter { (item:TestPersistable) -> Bool in
-            return item.id == "667"
-        }.first
-        
-        XCTAssertNotNil(item667)
-        
-    }
-    
-    func testAsyncGetAllByType(){
-    
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        try! store.persist(persistable)
-        
-        let persistable2 = TestPersistable(id: "667",
-                                           title: "Testtitel2")
-        try! store.persist(persistable2)
-
-        
-        let expect = expectation(description: "get all async")
-        
-        try! store.getAll(TestPersistable.self, completion: { (items: [TestPersistable]) in
+        do {
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try! store.persist(persistable)
+            
+            let persistable2 = TestPersistable(id: "667",
+                                              title: "Testtitel2")
+            try! store.persist(persistable2)
+            
+            let items = try! store.getAll(TestPersistable.self)
             
             XCTAssert(items.count == 2)
             
             let item667 = items.filter { (item:TestPersistable) -> Bool in
                 return item.id == "667"
-                }.first
+            }.first
             
             XCTAssertNotNil(item667)
-            expect.fulfill()
-        })
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
+    
         
-        waitForExpectations(timeout: 3) { (error:Error?) in
-            if let error = error {
-                XCTFail("complete callback not called: \(error)")
+    }
+    
+    func testAsyncGetAllByType(){
+        
+        do {
+    
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try! store.persist(persistable)
+            
+            let persistable2 = TestPersistable(id: "667",
+                                               title: "Testtitel2")
+            try! store.persist(persistable2)
+
+            
+            let expect = expectation(description: "get all async")
+            
+            try! store.getAll(TestPersistable.self, completion: { (items: [TestPersistable]) in
+                
+                XCTAssert(items.count == 2)
+                
+                let item667 = items.filter { (item:TestPersistable) -> Bool in
+                    return item.id == "667"
+                    }.first
+                
+                XCTAssertNotNil(item667)
+                expect.fulfill()
+            })
+            
+            waitForExpectations(timeout: 3) { (error:Error?) in
+                if let error = error {
+                    XCTFail("complete callback not called: \(error)")
+                }
             }
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
         }
     }
 
     
     func testExists(){
         
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        try! store.persist(persistable)
-        
-        let exists = try! store.exists(persistable)
-        XCTAssertTrue(exists)
-        
+        do {
+            
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try store.persist(persistable)
+            
+            let exists = try store.exists(persistable)
+            XCTAssertTrue(exists)
+            
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
     }
     
     
     func testAsyncExists(){
-        
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        try! store.persist(persistable)
-        
-        let expect = expectation(description: "exists async")
-        
-        try! store.exists(persistable, completion: { (exists: Bool) in
-            XCTAssertTrue(exists)
-            expect.fulfill()
-        })
-        
-        waitForExpectations(timeout: 3) { (error:Error?) in
-            if let error = error {
-                XCTFail("complete callback not called: \(error)")
+        do {
+            
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try! store.persist(persistable)
+            
+            let expect = expectation(description: "exists async")
+            
+            try! store.exists(persistable, completion: { (exists: Bool) in
+                XCTAssertTrue(exists)
+                expect.fulfill()
+            })
+            
+            waitForExpectations(timeout: 3) { (error:Error?) in
+                if let error = error {
+                    XCTFail("complete callback not called: \(error)")
+                }
             }
+        
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
         }
-        
     }
-    
+
     func testExistsByIdentifier(){
-        let store = self.createStore()
         
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
+        do {
         
-        try! store.persist(persistable)
-        
-        let exists = try! store.exists("666",type:TestPersistable.self)
-        XCTAssertTrue(exists)
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try store.persist(persistable)
+            
+            let exists = try store.exists("666",type:TestPersistable.self)
+            XCTAssertTrue(exists)
+            
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
     }
     
     
     func testFilter(){
         
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        try! store.persist(persistable)
-        
-        let persistable2 = TestPersistable(id: "667",
-                                           title: "Testtitel2")
-        try! store.persist(persistable2)
-        
-        
-        let item667 = try! store.filter(TestPersistable.self, includeElement: { (item:TestPersistable) -> Bool in
-    
-            return item.id == "667"
-        }).first
-        
-        XCTAssertNotNil(item667)
+        do {
+            let store = self.createStore()
+            
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
+            
+            try store.persist(persistable)
+            
+            let persistable2 = TestPersistable(id: "667",
+                                               title: "Testtitel2")
+            try store.persist(persistable2)
+            
+            
+            let item667 = try store.filter(TestPersistable.self, includeElement: { (item:TestPersistable) -> Bool in
 
+                return item.id == "667"
+            }).first
+            
+            XCTAssertNotNil(item667)
+            
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
         
     }
     
     func testAsyncFiler(){
         
-        let store = self.createStore()
-        
-        let persistable = TestPersistable(id: "666",
-                                          title: "Testtitel")
-        
-        try! store.persist(persistable)
-        
-        let persistable2 = TestPersistable(id: "667",
-                                           title: "Testtitel2")
-        try! store.persist(persistable2)
-        
-        
-        let expect = expectation(description: "get all async")
-        
-        try! store.filter(TestPersistable.self,
-                          includeElement: { (item:TestPersistable) -> Bool in
+        do {
+            let store = self.createStore()
             
-                            return item.id == "667"
-            }, completion: { (items: [TestPersistable]) in
+            let persistable = TestPersistable(id: "666",
+                                              title: "Testtitel")
             
-            let item667 = items.first
-            XCTAssertNotNil(item667)
-            expect.fulfill()
-        })
-        
-        waitForExpectations(timeout: 3) { (error:Error?) in
-            if let error = error {
-                XCTFail("complete callback not called: \(error)")
+            try store.persist(persistable)
+            
+            let persistable2 = TestPersistable(id: "667",
+                                               title: "Testtitel2")
+            try store.persist(persistable2)
+            
+            
+            let expect = expectation(description: "get all async")
+            
+            try store.filter(TestPersistable.self,
+                              includeElement: { (item:TestPersistable) -> Bool in
+                
+                                return item.id == "667"
+                }, completion: { (items: [TestPersistable]) in
+                
+                let item667 = items.first
+                XCTAssertNotNil(item667)
+                expect.fulfill()
+            })
+            
+            waitForExpectations(timeout: 3) { (error:Error?) in
+                if let error = error {
+                    XCTFail("complete callback not called: \(error)")
+                }
             }
+            
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
         }
     }
 
     
     func addView(store: NSCodingPersistenceStore) throws {
-        
-        try! store.addView("TestPersistablesByIdType",
-                            groupingBlock: { (collection:String, key:String,
-                                                  object: TestPersistable) -> String? in
-                        
-                            if Int(object.id) != nil{
-                                return "isInt"
-                            }else if (object.id == "isNotInView"){
-                                return nil
-                            }else{
-                                return "isNotInt"
-                            }
-                        
-                        
-        }) { (group: String,
-        collection1: String,
-               key1: String,
-            object1: TestPersistable,
-        collection2: String,
-               key2: String,
-            object2: TestPersistable) -> ComparisonResult in
-            
-            return key1.compare(key2)
-            
+        do {
+            try store.addView("TestPersistablesByIdType",
+                                groupingBlock: { (collection:String, key:String,
+                                                      object: TestPersistable) -> String? in
+                            
+                                if Int(object.id) != nil{
+                                    return "isInt"
+                                }else if (object.id == "isNotInView"){
+                                    return nil
+                                }else{
+                                    return "isNotInt"
+                                }
+                            
+                            
+            }) { (group: String,
+            collection1: String,
+                   key1: String,
+                object1: TestPersistable,
+            collection2: String,
+                   key2: String,
+                object2: TestPersistable) -> ComparisonResult in
+                
+                return key1.compare(key2)
+                
+            }
+        }  catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
         }
-    
     }
     
     func testAddView() {
@@ -516,6 +586,8 @@ class NSCodingPersitenceStoreTests: XCTestCase {
                 XCTAssert(items.count == 3)
                 expect.fulfill()
             })
+            
+            
             
             waitForExpectations(timeout: 3) { (error:Error?) in
                 if let error = error {
