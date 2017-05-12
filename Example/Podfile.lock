@@ -72,9 +72,9 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   JBPersistenceStore:
-    :path: ../
+    :path: "../"
   JBPersistenceStore-Protocols:
-    :path: ../../JBPersistenceStore-Protocols
+    :path: "../../JBPersistenceStore-Protocols"
 
 SPEC CHECKSUMS:
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
@@ -86,4 +86,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f42cd2c8f365c0706a37a3c33fee807e1649bb11
 
-COCOAPODS: 1.2.0.rc.1
+COCOAPODS: 1.2.1

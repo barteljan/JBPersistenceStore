@@ -11,16 +11,7 @@ import JBPersistenceStore
 import JBPersistenceStore_Protocols
 
 class NSCodingPersitenceStoreTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    
+
     func createStore() -> NSCodingPersistenceStore{
         let uuid = NSUUID.init().uuidString
         let codingStore = NSCodingPersistenceStore(databaseFilename: uuid)
@@ -74,9 +65,9 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             let persistable = TestPersistable(id: "666",
                                               title: "Testtitel")
             
-            _ = try! store.persist(persistable)
+            _ = try store.persist(persistable)
             
-            let persistable2 : TestPersistable? = try! store.get("666")
+            let persistable2 : TestPersistable? = try store.get("666")
             
             XCTAssertNotNil(persistable2)
             XCTAssert(persistable2!.title == "Testtitel")
@@ -98,7 +89,7 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             let expect = expectation(description: "It should persist it")
             
-            try! store.persist(persistable, completion: {
+            try store.persist(persistable, completion: {
                 let persistable2 : TestPersistable? = try! store.get("666")
                 
                 XCTAssertNotNil(persistable2)
@@ -127,16 +118,16 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             let persistable = TestPersistable(id: "666",
                                               title: "Testtitel")
             
-            try! store.persist(persistable)
+            try store.persist(persistable)
             
-            let persistable2 : TestPersistable? = try! store.get("666")
+            let persistable2 : TestPersistable? = try store.get("666")
             
             XCTAssertNotNil(persistable2)
             XCTAssert(persistable2!.title == "Testtitel")
             
-            try! store.delete(persistable)
+            try store.delete(persistable)
             
-            let persistable3 : TestPersistable? = try! store.get("666")
+            let persistable3 : TestPersistable? = try store.get("666")
             
             XCTAssertNil(persistable3)
         }  catch let error {
@@ -155,7 +146,7 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             try store.persist(persistable)
             
-            let persistable2 : TestPersistable? = try! store.get("666")
+            let persistable2 : TestPersistable? = try store.get("666")
             
             XCTAssertNotNil(persistable2)
             XCTAssert(persistable2!.title == "Testtitel")
@@ -163,7 +154,8 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             let expect = expectation(description: "It should delete it")
 
-            try store.delete(persistable, completion: {
+            
+            try store.delete(persistable2, completion: {
                 let persistable3 : TestPersistable? = try! store.get("666")
                 XCTAssertNil(persistable3)
                 expect.fulfill()
@@ -284,13 +276,13 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             let persistable = TestPersistable(id: "666",
                                               title: "Testtitel")
             
-            try! store.persist(persistable)
+            try store.persist(persistable)
             
             let persistable2 = TestPersistable(id: "667",
                                               title: "Testtitel2")
-            try! store.persist(persistable2)
+            try store.persist(persistable2)
             
-            let items = try! store.getAll(TestPersistable.self)
+            let items = try store.getAll(TestPersistable.self)
             
             XCTAssert(items.count == 2)
             
@@ -315,16 +307,16 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             let persistable = TestPersistable(id: "666",
                                               title: "Testtitel")
             
-            try! store.persist(persistable)
+            try store.persist(persistable)
             
             let persistable2 = TestPersistable(id: "667",
                                                title: "Testtitel2")
-            try! store.persist(persistable2)
+            try store.persist(persistable2)
 
             
             let expect = expectation(description: "get all async")
             
-            try! store.getAll(TestPersistable.self, completion: { (items: [TestPersistable]) in
+            try store.getAll(TestPersistable.self, completion: { (items: [TestPersistable]) in
                 
                 XCTAssert(items.count == 2)
                 
@@ -375,11 +367,11 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             let persistable = TestPersistable(id: "666",
                                               title: "Testtitel")
             
-            try! store.persist(persistable)
+            try store.persist(persistable)
             
             let expect = expectation(description: "exists async")
             
-            try! store.exists(persistable, completion: { (exists: Bool) in
+            try store.exists(persistable, completion: { (exists: Bool) in
                 XCTAssertTrue(exists)
                 expect.fulfill()
             })
