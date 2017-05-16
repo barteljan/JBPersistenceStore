@@ -7,13 +7,11 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.4.0):
     - CocoaLumberjack/Default
-  - JBPersistenceStore (1.0.0):
-    - JBPersistenceStore-Protocols
-    - ValueCoding (~> 2.1.0)
+  - JBPersistenceStore (1.1.0):
+    - JBPersistenceStore-Protocols (~> 1.1.0)
     - YapDatabase/Standard
-  - JBPersistenceStore-Protocols (1.0.0)
+  - JBPersistenceStore-Protocols (1.1.0)
   - Reachability (3.2)
-  - ValueCoding (2.1.0)
   - YapDatabase (2.9.2):
     - YapDatabase/Standard (= 2.9.2)
   - YapDatabase/Standard (2.9.2):
@@ -78,10 +76,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
-  JBPersistenceStore: 117b28e0e86e0903f607f5d9a34278d25c7fad62
-  JBPersistenceStore-Protocols: f4bf3b77fb4ce251e92faf54dbae1e1dfdc3167f
+  JBPersistenceStore: 6339a4f6ff2e4ecfe823b20263cd0c90d9cd84c0
+  JBPersistenceStore-Protocols: d6fb373dcf4e3d466e871b9f1607008491a33f71
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  ValueCoding: f18cd2f0c941c43e06669717ca25aeed02d702a9
   YapDatabase: b1e43555a34a5298e23a045be96817a5ef0da58f
 
 PODFILE CHECKSUM: f42cd2c8f365c0706a37a3c33fee807e1649bb11
