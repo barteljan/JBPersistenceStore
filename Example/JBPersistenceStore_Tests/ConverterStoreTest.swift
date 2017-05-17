@@ -10,15 +10,15 @@ import XCTest
 import JBPersistenceStore
 import JBPersistenceStore_Protocols
 
-class ConvertingPersistenceStoreTest: XCTestCase {
+class ConverterStoreTest: XCTestCase {
     
     public typealias PersistableType = NSCoding & CanBePersistedProtocol
     
-    func createStore() -> ConvertingStore<TestPersistable,PersistableType>{
+    func createStore() -> ConverterStore<TestPersistable,PersistableType>{
         let uuid = NSUUID.init().uuidString
         let codingStore = NSCodingPersistenceStore(databaseFilename: uuid)
         let anyStore = AnyTypedPersistenceStore(codingStore)
-        let convertingStore = ConvertingStore(store: anyStore, type: TestPersistable.self)
+        let convertingStore = ConverterStore(store: anyStore, type: TestPersistable.self)
         return convertingStore
     }
     
@@ -479,7 +479,7 @@ class ConvertingPersistenceStoreTest: XCTestCase {
     }
     
     
-    func addView(store: ConvertingStore<TestPersistable,PersistableType>) throws {
+    func addView(store: ConverterStore<TestPersistable,PersistableType>) throws {
         do {
             try store.addView("TestPersistablesByIdType",
                               groupingBlock: { (collection:String, key:String,
