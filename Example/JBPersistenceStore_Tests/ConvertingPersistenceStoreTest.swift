@@ -118,7 +118,7 @@ class ConvertingPersistenceStoreTest: XCTestCase {
     func testDelete(){
         do {
             let store = self.createStore()
-            
+            print(store)
             let persistable = TestPersistable(id: "666",
                                               title: "Testtitel")
             
