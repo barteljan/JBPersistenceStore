@@ -12,6 +12,8 @@ import JBPersistenceStore_Protocols
 
 class NSCodingPersitenceStoreTests: XCTestCase {
 
+    typealias PersistableType = NSCoding & CanBePersistedProtocol
+    
     func createStore() -> NSCodingPersistenceStore{
         let uuid = NSUUID.init().uuidString
         let codingStore = NSCodingPersistenceStore(databaseFilename: uuid)
@@ -67,7 +69,7 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             _ = try store.persist(persistable)
             
-            let persistable2 : TestPersistable? = try store.get("666")
+            let persistable2 : TestPersistable? = try store.get("666",type: TestPersistable.self) as? TestPersistable
             
             XCTAssertNotNil(persistable2)
             XCTAssert(persistable2!.title == "Testtitel")
@@ -90,7 +92,8 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             let expect = expectation(description: "It should persist it")
             
             try store.persist(persistable, completion: {
-                let persistable2 : TestPersistable? = try! store.get("666")
+                
+                let persistable2 : TestPersistable? = try! store.get("666", type: TestPersistable.self) as? TestPersistable
                 
                 XCTAssertNotNil(persistable2)
                 XCTAssert(persistable2!.title == "Testtitel")
@@ -120,14 +123,14 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             try store.persist(persistable)
             
-            let persistable2 : TestPersistable? = try store.get("666")
+            let persistable2 : TestPersistable? = try store.get("666", type: TestPersistable.self) as? TestPersistable
             
             XCTAssertNotNil(persistable2)
             XCTAssert(persistable2!.title == "Testtitel")
             
             try store.delete(persistable)
             
-            let persistable3 : TestPersistable? = try store.get("666")
+            let persistable3 : TestPersistable? = try store.get("666",type: TestPersistable.self) as? TestPersistable
             
             XCTAssertNil(persistable3)
         }  catch let error {
@@ -146,7 +149,7 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             try store.persist(persistable)
             
-            let persistable2 : TestPersistable? = try store.get("666")
+            let persistable2 : TestPersistable? = try store.get("666", type: TestPersistable.self) as? TestPersistable
             
             XCTAssertNotNil(persistable2)
             XCTAssert(persistable2!.title == "Testtitel")
@@ -155,8 +158,8 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             let expect = expectation(description: "It should delete it")
 
             
-            try store.delete(persistable2, completion: {
-                let persistable3 : TestPersistable? = try! store.get("666")
+            try store.delete(persistable2!, completion: {
+                let persistable3 : TestPersistable? = try! store.get("666",type: TestPersistable.self) as? TestPersistable
                 XCTAssertNil(persistable3)
                 expect.fulfill()
             })
@@ -173,6 +176,7 @@ class NSCodingPersitenceStoreTests: XCTestCase {
         
     }
     
+    /*
     func testGetByIdentifier(){
         
         do {
@@ -184,7 +188,7 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             try store.persist(persistable)
             
-            let persistable2 : TestPersistable? = try store.get("666")
+            let persistable2 : TestPersistable? = try store.get("666", type: TestPersistable.self) as? TestPersistable
             XCTAssertNotNil(persistable2)
             XCTAssert(persistable2!.title == "Testtitel")
         }  catch let error {
@@ -206,9 +210,11 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             let expect = expectation(description: "get async")
             
-            try store.get("666", completion: { (item: TestPersistable?) in
-                XCTAssertNotNil(item)
-                XCTAssert(item!.title == "Testtitel")
+            try store.get("666", type: TestPersistable.self,completion: { (item: PersistableType?) in
+                
+                let myItem = item as? TestPersistable
+                XCTAssertNotNil(myItem)
+                XCTAssert(myItem!.title == "Testtitel")
                 expect.fulfill()
             })
             
@@ -223,6 +229,7 @@ class NSCodingPersitenceStoreTests: XCTestCase {
         }
         
     }
+    */
     
     func testGetByIdentifierAndType(){
         do {
@@ -233,7 +240,7 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             try store.persist(persistable)
             
-            let persistable2 = try store.get("666", type: TestPersistable.self)
+            let persistable2 = try store.get("666", type: TestPersistable.self) as? TestPersistable
             XCTAssertNotNil(persistable2)
             XCTAssert(persistable2!.title == "Testtitel")
         }  catch let error {
@@ -252,9 +259,10 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             let expect = expectation(description: "get async")
             
-            try store.get("666", type: TestPersistable.self, completion: { (item: TestPersistable?) in
-                XCTAssertNotNil(item)
-                XCTAssert(item!.title == "Testtitel")
+            try store.get("666", type: TestPersistable.self, completion: { (item: PersistableType?) in
+                let myItem = item as? TestPersistable
+                XCTAssertNotNil(myItem)
+                XCTAssert(myItem!.title == "Testtitel")
                 expect.fulfill()
             })
             
@@ -286,8 +294,13 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             XCTAssert(items.count == 2)
             
-            let item667 = items.filter { (item:TestPersistable) -> Bool in
-                return item.id == "667"
+            let item667 = items.filter { (item:PersistableType) -> Bool in
+                
+                if let myItem = item as? TestPersistable {
+                    return myItem.id == "667"
+                }
+                return false
+
             }.first
             
             XCTAssertNotNil(item667)
@@ -316,13 +329,18 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             let expect = expectation(description: "get all async")
             
-            try store.getAll(TestPersistable.self, completion: { (items: [TestPersistable]) in
+            try store.getAll(TestPersistable.self, completion: { (items: [PersistableType]) in
                 
                 XCTAssert(items.count == 2)
                 
-                let item667 = items.filter { (item:TestPersistable) -> Bool in
-                    return item.id == "667"
-                    }.first
+                let item667 = items.filter { (item:PersistableType) -> Bool in
+                    
+                    if let myItem = item as? TestPersistable {
+                        return myItem.id == "667"
+                    }
+                    return false
+                    
+                }.first
                 
                 XCTAssertNotNil(item667)
                 expect.fulfill()
@@ -422,9 +440,11 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             try store.persist(persistable2)
             
             
-            let item667 = try store.filter(TestPersistable.self, includeElement: { (item:TestPersistable) -> Bool in
-
-                return item.id == "667"
+            let item667 = try store.filter(TestPersistable.self, includeElement: { (item:PersistableType) -> Bool in
+                if let myItem = item as? TestPersistable {
+                    return myItem.id == "667"
+                }
+                return false
             }).first
             
             XCTAssertNotNil(item667)
@@ -452,11 +472,18 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             let expect = expectation(description: "get all async")
             
+            
+            
+            
             try store.filter(TestPersistable.self,
-                              includeElement: { (item:TestPersistable) -> Bool in
-                
-                                return item.id == "667"
-                }, completion: { (items: [TestPersistable]) in
+                              includeElement: { (item:PersistableType) -> Bool in
+                                
+                                if let myItem = item as? TestPersistable {
+                                    return myItem.id == "667"
+                                }
+                                return false
+                                
+                }, completion: { (items: [PersistableType]) in
                 
                 let item667 = items.first
                 XCTAssertNotNil(item667)
@@ -479,24 +506,28 @@ class NSCodingPersitenceStoreTests: XCTestCase {
         do {
             try store.addView("TestPersistablesByIdType",
                                 groupingBlock: { (collection:String, key:String,
-                                                      object: TestPersistable) -> String? in
+                                                      object: PersistableType) -> String? in
                             
-                                if Int(object.id) != nil{
-                                    return "isInt"
-                                }else if (object.id == "isNotInView"){
-                                    return nil
-                                }else{
-                                    return "isNotInt"
+                                    
+                                if let object = object as? TestPersistable {
+                                    if Int(object.id) != nil{
+                                        return "isInt"
+                                    }else if (object.id == "isNotInView"){
+                                        return nil
+                                    }else{
+                                        return "isNotInt"
+                                    }
                                 }
+                                return nil
                             
                             
             }) { (group: String,
             collection1: String,
                    key1: String,
-                object1: TestPersistable,
+                object1: PersistableType,
             collection2: String,
                    key2: String,
-                object2: TestPersistable) -> ComparisonResult in
+                object2: PersistableType) -> ComparisonResult in
                 
                 return key1.compare(key2)
                 
@@ -540,7 +571,7 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             try store.persist(persistable4)
             try self.addView(store: store)
             
-            let items: [TestPersistable] = try store.getAll("TestPersistablesByIdType")
+            let items: [PersistableType] = try store.getAll("TestPersistablesByIdType")
             XCTAssert(items.count == 3)
             
         }   catch let error {
@@ -574,7 +605,7 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             
             let expect = expectation(description: "filter async")
             
-            try store.getAll("TestPersistablesByIdType", completion: { (items: [TestPersistable]) in
+            try store.getAll("TestPersistablesByIdType", completion: { (items: [PersistableType]) in
                 XCTAssert(items.count == 3)
                 expect.fulfill()
             })

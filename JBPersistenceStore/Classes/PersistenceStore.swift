@@ -7,6 +7,7 @@
 //
 import JBPersistenceStore_Protocols
 import YapDatabase
+/*
 
 @available(*, deprecated, message: "Doesn't throw any errors, has no async functions, use a AnyTypedPersistenceStore<NSCoding & CanBePersistedProtocol> store instead, NSCodingPersistenceStore could be a candidate")
 open class PersistenceStore : PersistenceStoreProtocol {
@@ -136,3 +137,4 @@ open class PersistenceStore : PersistenceStoreProtocol {
 
 
 }
+*/

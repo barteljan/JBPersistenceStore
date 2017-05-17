@@ -10,6 +10,7 @@ import XCTest
 import JBPersistenceStore
 import JBPersistenceStore_Protocols
 
+/*
 class PersistenceStoreTests: XCTestCase {
     
     func createStore() -> PersistenceStore{
@@ -247,3 +248,4 @@ class PersistenceStoreTests: XCTestCase {
     }
     
 }
+ */
