@@ -17,6 +17,6 @@ A persistence store for storing your models in a yapdatabase.
 
   s.source_files = 'JBPersistenceStore/Classes/**/*'
 
-  s.dependency 'YapDatabase/Standard'
+  s.dependency 'YapDatabase/Standard','~> 2.9.0'
   s.dependency 'JBPersistenceStore-Protocols','~> 1.1.0'
 end
