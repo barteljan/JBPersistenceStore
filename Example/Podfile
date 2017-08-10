@@ -6,7 +6,7 @@ platform :ios, '8.0'
 
 abstract_target 'JBPersistenceStore' do
     
-    pod 'JBPersistenceStore-Protocols', :path => '../../JBPersistenceStore-Protocols'
+    pod 'JBPersistenceStore-Protocols'
     pod 'JBPersistenceStore', :path => '../'
     pod 'YapDatabase'
     
