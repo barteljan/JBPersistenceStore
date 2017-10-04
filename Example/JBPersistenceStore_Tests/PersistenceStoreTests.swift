@@ -25,6 +25,13 @@ class PersistenceStoreTests: XCTestCase {
         XCTAssert(version == 2)
     }
     
+    func testVersionChangeHandlerDoesntTriggerOnDatabaseCreation(){
+        let uuid = UUID().uuidString
+        let _ = PersistenceStore(databaseFilename: uuid, version : 2, changeVersionHandler: {
+            (from: Int, to: Int)in
+            XCTFail("Should not fire on creation")
+        })
+    }
     
     func testPersistence(){
         
@@ -41,6 +48,8 @@ class PersistenceStoreTests: XCTestCase {
         XCTAssert(persistable2!.title == "Testtitel")
         
     }
+    
+   
     
     
     func testDelete(){

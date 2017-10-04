@@ -25,6 +25,14 @@ class NSCodingPersitenceStoreTests: XCTestCase {
     }
     
     
+    func testVersionChangeHandlerDoesntTriggerOnDatabaseCreation(){
+        let uuid = UUID().uuidString
+        let store = NSCodingPersistenceStore(databaseFilename: uuid, version : 2, changeVersionHandler: {
+            (from: Int, to: Int)in
+            XCTFail("Should not fire on creation")
+        })
+    }
+    
     func testIsResponsible() {
         let store = self.createStore()
         

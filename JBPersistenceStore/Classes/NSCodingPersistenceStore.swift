@@ -47,16 +47,18 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
         
         self._version = version
         
-        var userDefaultsKey = "\(databaseFilename)_JB_PERSISTENCE_STORE_DB_VERSION"
+        let userDefaultsKey = "\(databaseFilename)_JB_PERSISTENCE_STORE_DB_VERSION"
         
         let userDefaults = UserDefaults.standard
         
-        var oldVersion : Int = userDefaults.integer(forKey: userDefaultsKey)
-        
-        if(self._version != oldVersion){
-            userDefaults.set(self._version, forKey: userDefaultsKey)
-            userDefaults.synchronize()
-            self.changeVersionHandler(oldVersion,self._version)
+        if let oldVersionObj = userDefaults.object(forKey: userDefaultsKey){
+            if let oldVersion = oldVersionObj as? Int{
+                if(self._version != oldVersion){
+                    userDefaults.set(self._version, forKey: userDefaultsKey)
+                    userDefaults.synchronize()
+                    self.changeVersionHandler(oldVersion,self._version)
+                }
+            }
         }
         
     }
