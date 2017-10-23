@@ -25,6 +25,38 @@ class PersistenceStoreTests: XCTestCase {
         XCTAssert(version == 2)
     }
     
+    
+    func testVersionChangedHandlerDoesTriggerOnDatabaseVersionChange(){
+        let oldVersion = 2
+        let newVersion = 3
+        let dbname = NSUUID.init().uuidString
+        let exp = expectation(description: "wait for versionchangehandler")
+        
+        _ = PersistenceStore(databaseFilename: dbname, version: oldVersion) { (old:Int,new:Int) -> Void in }
+        
+        _ = PersistenceStore(databaseFilename: dbname, version: newVersion) { (old:Int,new:Int) -> Void in
+            XCTAssert(old == oldVersion)
+            XCTAssert(new == newVersion)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testVersionChangedHandlerDoesNotTriggerOnStableDatabaseVersion(){
+        let uuid = UUID().uuidString
+        let version = 2
+        
+        _ = PersistenceStore(databaseFilename: uuid, version : version, changeVersionHandler: {
+            (from: Int, to: Int)in
+            XCTFail("Should not fire on creation")
+        })
+        _ = PersistenceStore(databaseFilename: uuid, version : version, changeVersionHandler: {
+            (from: Int, to: Int)in
+            XCTFail("Should not fire on unchangedVersion")
+        })
+        
+    }
+    
     func testVersionChangeHandlerDoesntTriggerOnDatabaseCreation(){
         let uuid = UUID().uuidString
         let _ = PersistenceStore(databaseFilename: uuid, version : 2, changeVersionHandler: {

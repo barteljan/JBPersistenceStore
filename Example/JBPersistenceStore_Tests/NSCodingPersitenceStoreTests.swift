@@ -27,10 +27,41 @@ class NSCodingPersitenceStoreTests: XCTestCase {
     
     func testVersionChangeHandlerDoesntTriggerOnDatabaseCreation(){
         let uuid = UUID().uuidString
-        let store = NSCodingPersistenceStore(databaseFilename: uuid, version : 2, changeVersionHandler: {
+        _ = NSCodingPersistenceStore(databaseFilename: uuid, version : 2, changeVersionHandler: {
             (from: Int, to: Int)in
             XCTFail("Should not fire on creation")
         })
+    }
+    
+    func testVersionChangedHandlerDoesTriggerOnDatabaseVersionChange(){
+        let oldVersion = 2
+        let newVersion = 3
+        let dbname = NSUUID.init().uuidString
+        let exp = expectation(description: "wait for versionchangehandler")
+        
+        _ = NSCodingPersistenceStore(databaseFilename: dbname, version: oldVersion) { (old:Int,new:Int) -> Void in }
+        
+        _ = NSCodingPersistenceStore(databaseFilename: dbname, version: newVersion) { (old:Int,new:Int) -> Void in
+            XCTAssert(old == oldVersion)
+            XCTAssert(new == newVersion)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testVersionChangedHandlerDoesNotTriggerOnStableDatabaseVersion(){
+        let uuid = UUID().uuidString
+        let version = 2
+        
+        _ = NSCodingPersistenceStore(databaseFilename: uuid, version : version, changeVersionHandler: {
+            (from: Int, to: Int)in
+            XCTFail("Should not fire on creation")
+        })
+        _ = NSCodingPersistenceStore(databaseFilename: uuid, version : version, changeVersionHandler: {
+            (from: Int, to: Int)in
+            XCTFail("Should not fire on unchangedVersion")
+        })
+        
     }
     
     func testIsResponsible() {

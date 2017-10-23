@@ -59,6 +59,9 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
                     self.changeVersionHandler(oldVersion,self._version)
                 }
             }
+        }else{//database creation
+            userDefaults.set(self._version, forKey: userDefaultsKey)
+            userDefaults.synchronize()
         }
         
     }
