@@ -20,7 +20,6 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     internal let writeConnection : YapDatabaseConnection
     
     internal var _version : Int
-    internal var changeVersionHandler : ((Int,Int) -> Void)!
     
     
     public convenience init(databaseFilename: String){
@@ -31,7 +30,8 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
         self.init(databaseFilename: databaseFilename, version: version, changeVersionHandler: {(oldVersion: Int,newVerion: Int) -> Void in })
     }
     
-    public init(databaseFilename: String, version : Int ,changeVersionHandler: ((Int,Int) -> Void)?){
+    
+    public init(databaseFilename: String, version newVersion: Int ,asyncChangeVersionHandler versionHandler:((NSCodingPersistenceStore,Int,Int,()->()) ->())){
         let databasePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(databaseFilename + ".sqlite").absoluteString
         
         
@@ -40,37 +40,52 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
         self.readConnection  = self.database.newConnection()
         self.writeConnection = self.database.newConnection()
         
-        if let versionHandler = changeVersionHandler{
-            self.changeVersionHandler = versionHandler
-        }else{
-            self.changeVersionHandler = {(oldVersion: Int,newVerion: Int) -> Void in }
-        }
-        
-        self._version = version
-        
         let userDefaultsKey = "\(databaseFilename)_JB_PERSISTENCE_STORE_DB_VERSION"
         
         let userDefaults = UserDefaults.standard
+        let currentVersion: Int
         
-        if let oldVersionObj = userDefaults.object(forKey: userDefaultsKey){
-            if let oldVersion = oldVersionObj as? Int{
-                if(self._version != oldVersion){
-                    userDefaults.set(self._version, forKey: userDefaultsKey)
-                    userDefaults.synchronize()
-                    self.changeVersionHandler(oldVersion,self._version)
+        if isExistingDatabase{
+            if let storedVersionObj = userDefaults.object(forKey: userDefaultsKey){
+                if let storedVersion = storedVersionObj as? Int{
+                    currentVersion = storedVersion
+                }else{//invalid version number(should not happen)
+                    userDefaults.removeObject(forKey: userDefaultsKey)
+                    currentVersion = -1
                 }
+            }else{//forgot version number(unfortunately happened already)
+                currentVersion = -1
             }
-        }else{
-            if isExistingDatabase{//forgot version
-                userDefaults.set(self._version, forKey: userDefaultsKey)
-                userDefaults.synchronize()
-                self.changeVersionHandler(-1,self._version)
-            }else{//database creation
+        }else{//new database
+            self._version = newVersion
+            userDefaults.set(self._version, forKey: userDefaultsKey)
+            userDefaults.synchronize()
+            return
+        }
+        
+        //we have an existing database and a current version number at this point
+        
+        self._version = currentVersion
+        
+        let onSuccessfulChange = {
+            DispatchQueue.main.async {
+                self._version = newVersion
                 userDefaults.set(self._version, forKey: userDefaultsKey)
                 userDefaults.synchronize()
             }
         }
         
+        if currentVersion != newVersion{
+            versionHandler(self,currentVersion, newVersion, onSuccessfulChange)
+        }
+        
+    }
+    
+    public convenience init(databaseFilename: String, version : Int ,changeVersionHandler: ((Int,Int) -> Void)?){
+        self.init(databaseFilename: databaseFilename, version: version) { (oldStore,from, to, success) in
+            changeVersionHandler?(from,to)
+            success()
+        }
     }
 
     public func version() -> Int{

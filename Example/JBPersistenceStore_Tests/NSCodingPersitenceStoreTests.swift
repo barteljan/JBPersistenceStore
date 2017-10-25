@@ -50,6 +50,26 @@ class NSCodingPersitenceStoreTests: XCTestCase {
         XCTAssert(codingStore.version() == 2)
     }
     
+    func testAsynchVersionChangedHandlerHasToCallSuccesToSeeVersionchange(){
+        let uuid = UUID().uuidString
+        let exp = expectation(description: "wait for version change")
+        let oldVersion = 0
+        let newVersion = 1
+        let _ = NSCodingPersistenceStore(databaseFilename: uuid, version: oldVersion)
+        
+        
+        let newStore = NSCodingPersistenceStore(databaseFilename: uuid, version: newVersion) { (updateMe,from, to, success) in
+            XCTAssert(updateMe.version() == oldVersion)
+            XCTAssert(from == oldVersion)
+            XCTAssert(to == newVersion)
+            success()
+        }
+        DispatchQueue.main.async {
+            XCTAssert(newStore.version() == newVersion)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: 1, handler: nil)
+    }
     
     func testVersionChangeHandlerDoesntTriggerOnDatabaseCreation(){
         let uuid = UUID().uuidString
@@ -89,6 +109,8 @@ class NSCodingPersitenceStoreTests: XCTestCase {
         })
         
     }
+    
+    
     
     func testIsResponsible() {
         let store = self.createStore()
