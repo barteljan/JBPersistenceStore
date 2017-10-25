@@ -8,7 +8,6 @@
 
 import Foundation
 import JBPersistenceStore_Protocols
-import Foundation
 import YapDatabase
 import YapDatabase.YapDatabaseView
 
@@ -35,6 +34,8 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     public init(databaseFilename: String, version : Int ,changeVersionHandler: ((Int,Int) -> Void)?){
         let databasePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(databaseFilename + ".sqlite").absoluteString
         
+        
+        let isExistingDatabase: Bool = (try? URL(string: databasePath)!.checkResourceIsReachable()) ?? false
         self.database = YapDatabase(path: databasePath)
         self.readConnection  = self.database.newConnection()
         self.writeConnection = self.database.newConnection()
@@ -59,9 +60,15 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
                     self.changeVersionHandler(oldVersion,self._version)
                 }
             }
-        }else{//database creation
-            userDefaults.set(self._version, forKey: userDefaultsKey)
-            userDefaults.synchronize()
+        }else{
+            if isExistingDatabase{//forgot version
+                userDefaults.set(self._version, forKey: userDefaultsKey)
+                userDefaults.synchronize()
+                self.changeVersionHandler(-1,self._version)
+            }else{//database creation
+                userDefaults.set(self._version, forKey: userDefaultsKey)
+                userDefaults.synchronize()
+            }
         }
         
     }

@@ -7,8 +7,9 @@
 //
 
 import XCTest
-import JBPersistenceStore
+@testable import JBPersistenceStore
 import JBPersistenceStore_Protocols
+import YapDatabase
 
 class NSCodingPersitenceStoreTests: XCTestCase {
 
@@ -17,6 +18,31 @@ class NSCodingPersitenceStoreTests: XCTestCase {
         let codingStore = NSCodingPersistenceStore(databaseFilename: uuid)
         return codingStore
     }
+    
+    
+    func testcreateStoreCreatesNewFile(){
+        let uuid = UUID.init().uuidString
+        let store = NSCodingPersistenceStore(databaseFilename: uuid)
+        let fullName = store.database.databasePath
+        XCTAssert(fileExists(atURL: fullName))
+    }
+    
+    func testVersionChangedHandlerDoesTriggerOnForgottenVersion(){
+        let exp = expectation(description: "wait for versionChangeHandler")
+        let uuid = UUID().uuidString
+        let expectedNewVersion = 3
+        let _ = NSCodingPersistenceStore(databaseFilename: uuid)
+        self.forgetVersion(ofDatabaseFilename: uuid)
+        
+        _ = NSCodingPersistenceStore(databaseFilename: uuid,version: expectedNewVersion,changeVersionHandler: {(oldVersion: Int, newVersion: Int) in
+            XCTAssert(oldVersion == -1)
+            XCTAssert(newVersion == expectedNewVersion)
+            exp.fulfill()
+        })
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
     
     func testVersion() {
         let uuid = NSUUID.init().uuidString
@@ -631,6 +657,23 @@ class NSCodingPersitenceStoreTests: XCTestCase {
             XCTFail("FAIL: \(#file) \(#line) \(error)")
         }
         
+    }
+    
+    func fileExists(atURL: String) -> Bool{
+        guard let url = URL(string: atURL) else{return false}
+        do{
+            let available = try url.checkResourceIsReachable()
+            return available
+        }catch{
+            print("file:\(atURL) missing:\(error)")
+            return false
+        }
+    }
+    
+    func forgetVersion(ofDatabaseFilename databaseFilename: String){
+        let userDefaultsKey = "\(databaseFilename)_JB_PERSISTENCE_STORE_DB_VERSION"
+        let userDefaults = UserDefaults.standard
+        userDefaults.removeObject(forKey: userDefaultsKey)
     }
 
     
