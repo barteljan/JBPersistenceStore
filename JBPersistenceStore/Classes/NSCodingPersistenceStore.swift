@@ -31,7 +31,7 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     }
     
     
-    public init(databaseFilename: String, version newVersion: Int ,asyncChangeVersionHandler versionHandler:((NSCodingPersistenceStore,Int,Int,()->()) ->())){
+    public init(databaseFilename: String, version newVersion: Int ,asyncChangeVersionHandler versionHandler:((NSCodingPersistenceStore,Int,Int,@escaping()->()) ->())){
         let databasePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(databaseFilename + ".sqlite").absoluteString
         
         
