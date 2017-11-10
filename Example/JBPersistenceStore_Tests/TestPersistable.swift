@@ -13,10 +13,10 @@ import JBPersistenceStore_Protocols
 class TestPersistable : NSObject,NSCoding,CanBePersistedProtocol{
     
     
-    let id : String
-    let title : String
+    @objc let id : String
+    @objc let title : String
     
-    public init(id: String,title: String){
+    @objc public init(id: String,title: String){
         self.id = id
         self.title = title
     }
@@ -33,11 +33,11 @@ class TestPersistable : NSObject,NSCoding,CanBePersistedProtocol{
     }
     
     
-    public static func collectionName() -> String {
+    @objc public static func collectionName() -> String {
         return "TestPersistable"
     }
     
-    public func identifier() -> String {
+    @objc public func identifier() -> String {
         return self.id
     }
     
