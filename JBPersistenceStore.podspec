@@ -19,6 +19,6 @@ s.source_files = 'JBPersistenceStore/Classes/**/*'
 
 s.pod_target_xcconfig = { 'WARNING_CFLAGS' => '-Wdeprecated-declarations' }
 
-s.dependency 'YapDatabase/Standard', '~> 2.9.0'
+s.dependency 'YapDatabase/Standard'#, '~> 2.9.0'
 s.dependency 'JBPersistenceStore-Protocols','~> 2.0.0'
 end

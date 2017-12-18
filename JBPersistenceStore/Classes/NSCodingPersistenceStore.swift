@@ -12,7 +12,7 @@ import YapDatabase
 import YapDatabase.YapDatabaseView
 
 open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
-            
+    
     public typealias PersistableType = NSCoding & CanBePersistedProtocol
     
     var database : YapDatabase
@@ -169,40 +169,6 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
 
     }
     
-    public func delete<T>(_ identifier: String, type: T.Type) throws {
-        
-        if let type = T.self as? PersistableType.Type {
-            
-            let collection = type.collectionName()
-            
-            self.writeConnection.readWrite { (transaction : YapDatabaseReadWriteTransaction) in
-                transaction.removeObject(forKey: identifier, inCollection: collection)
-            }
-            
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
-        }
-        
-    }
-    
-    public func delete<T>(_ identifier: String, type: T.Type, completion: @escaping () -> ()) throws {
-        
-        if let type = T.self as? PersistableType.Type {
-            let collection = type.collectionName()
-        
-            self.writeConnection.asyncReadWrite({ (transaction:YapDatabaseReadWriteTransaction) in
-                
-                transaction.removeObject(forKey: identifier, inCollection: collection)
-                
-            }) {
-                completion()
-            }
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
-        }
-    }
-    
-    
     public func get<T>(_ identifier: String) throws -> T? {
         
         
@@ -238,43 +204,6 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
             throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
         
-    }
-    
-    public func get<T>(_ identifier: String, type: T.Type) throws -> T? {
-        
-        if let type = T.self as? PersistableType.Type {
-            var item : T?
-            
-            self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
-                let collectionName = type.collectionName()
-                item = transaction.object(forKey: identifier, inCollection:collectionName) as! T?
-            }
-            
-            return item
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
-        }
-        
-    }
-    
-    public func get<T>(_ identifier: String, type: T.Type, completion: @escaping (_ item: T?) -> Void ) throws {
-        
-        if let type = T.self as? PersistableType.Type {
-            var item : T?
-            
-            self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
-                
-                let collectionName = type.collectionName()
-                item = transaction.object(forKey: identifier, inCollection:collectionName) as! T?
-                
-            }) {
-                completion(item)
-            }
-            
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
-        }
-
     }
     
     public func getAll<T>(_ type: T.Type) throws -> [T] {
@@ -322,13 +251,11 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     
     public func getAll<T>(_ viewName:String) throws ->[T] {
         
-        if let type = T.self as? PersistableType.Type {
+        if let _ = T.self as? PersistableType.Type {
         
             var resultArray : Array<T> = [T]()
             
             self.readConnection.read { (transaction:YapDatabaseReadTransaction) in
-                
-                let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as! YapDatabaseViewTransaction
                 if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
                     viewTransaction.enumerateGroups({ (group:String, stop:UnsafeMutablePointer<ObjCBool>) in
                         viewTransaction.enumerateKeysAndObjects(inGroup: group, with: [], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
@@ -348,13 +275,11 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     
     public func getAll<T>(_ viewName:String, completion: @escaping (_ items: [T]) -> Void) throws {
         
-        if let type = T.self as? PersistableType.Type {
+        if let _ = T.self as? PersistableType.Type {
         
             var resultArray : [T] = [T]()
             
             self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
-                
-                let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as! YapDatabaseViewTransaction
                 if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
                     viewTransaction.enumerateGroups({ (group:String, stop:UnsafeMutablePointer<ObjCBool>) in
                         viewTransaction.enumerateKeysAndObjects(inGroup: group, with: [], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
@@ -362,7 +287,6 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
                         })
                     })
                 }
-                
             }) {
                 completion(resultArray)
             }
@@ -377,8 +301,7 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     
     public func getAll<T>(_ viewName:String,groupName:String) throws ->[T] {
         
-        if let type = T.self as? PersistableType.Type {
-        
+        if let _ = T.self as? PersistableType.Type {
             var resultArray = [T]()
             
             self.readConnection.read { (transaction:YapDatabaseReadTransaction) in
@@ -391,9 +314,7 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
                 }
                 
             }
-            
             return resultArray
-            
         } else {
             throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
@@ -401,10 +322,9 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     
     public func getAll<T>(_ viewName:String,groupName:String, completion: @escaping (_ items: [T]) -> Void) throws {
         
-        if let type = T.self as? PersistableType.Type {
-        
+        if let _ = T.self as? PersistableType.Type {
             var resultArray : [T] = [T]()
-            
+    
             self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
                 
                 if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
@@ -539,7 +459,7 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
 
     public func addView<T>(_ viewName: String, groupingBlock: @escaping ((String, String, T) -> String?), sortingBlock: @escaping ((String, String, String, T, String, String, T) -> ComparisonResult)) throws {
         
-        if let type = T.self as? PersistableType.Type {
+        if let _ = T.self as? PersistableType.Type {
         
             let grouping = YapDatabaseViewGrouping.withRowBlock { (transaction: YapDatabaseReadTransaction,
                 collection:String,
@@ -554,7 +474,6 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
                 return groupingBlock(collection,key,object as! T)
             }
             
-            
             let sorting = YapDatabaseViewSorting.withRowBlock { (transaction:  YapDatabaseReadTransaction,
                 group:String,
                 collection1: String,
@@ -566,7 +485,6 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
                 object2:Any,
                 metadata2:Any?) -> ComparisonResult in
                 
-                
                 return sortingBlock(  group,
                                       collection1,
                                       key1,
@@ -577,13 +495,16 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
                 
             }
             
-            let view = YapDatabaseView(grouping: grouping, sorting: sorting)
-            
+            let view = YapDatabaseAutoView(grouping: grouping, sorting: sorting)
             self.database.register(view, withName: viewName)
             
         } else {
             throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
+        
+    }
+    
+    public func transaction(transaction: @escaping (AnyTypedPersistenceStore<NSCoding & CanBePersistedProtocol>) throws -> Void) rethrows {
         
     }
 }
