@@ -124,6 +124,10 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
         
         var error: Error?
         
+        guard let _ = item as? PersistableType else {
+            throw PersistenceStoreError.CannotUse(object : item, inStoreWithType: PersistableType.Type.self)
+        }
+        
         self.writeConnection.asyncReadWrite({ (transaction :YapDatabaseReadWriteTransaction) in
             do {
                 let store = TransactionalNSCodingPersistenceStore(writeTransaction: transaction)
@@ -161,6 +165,10 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
         
     
     public func delete<T>(_ item: T!, completion: @escaping () -> ()) throws {
+        
+        guard let _ = item as? PersistableType else {
+            throw PersistenceStoreError.CannotUse(object : item, inStoreWithType: PersistableType.Type.self)
+        }
         
         var error: Error?
         
@@ -207,6 +215,10 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     }
     
     public func get<T>(_ identifier: String, completion: @escaping (_ item: T?) -> Void ) throws {
+        
+        guard let _ = T.self as? PersistableType.Type else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
         
         var error: Error?
         var item: T?
@@ -255,6 +267,10 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     }
     
     public func getAll<T>(_ type: T.Type, completion: @escaping (_ items: [T]) -> Void) throws {
+        
+        guard let _ = T.self as? PersistableType.Type else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
         
         var error: Error?
         
@@ -306,6 +322,10 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     
     public func getAll<T>(_ viewName:String, completion: @escaping (_ items: [T]) -> Void) throws {
         
+        guard let _ = T.self as? PersistableType.Type else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
+        
         var error: Error?
         
         var items : [T] = [T]()
@@ -354,6 +374,10 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     }
     
     public func getAll<T>(_ viewName:String,groupName:String, completion: @escaping (_ items: [T]) -> Void) throws {
+        
+        guard let _ = T.self as? PersistableType.Type else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
         
         var error: Error?
         
@@ -487,6 +511,10 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     }
     
     public func filter<T>(_ type: T.Type, includeElement: @escaping (T) -> Bool, completion: @escaping (_ items: [T]) -> Void) throws {
+        
+        guard let _ = T.self as? PersistableType.Type else {
+            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }
         
         try self.getAll(T.self) { (items : [T]) in
             let filtered = items.filter(includeElement)
