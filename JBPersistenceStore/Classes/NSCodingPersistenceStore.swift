@@ -104,45 +104,57 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     
     public func persist<T>(_ item: T!) throws {
         
-        if let item = item as? PersistableType {
-            self.writeConnection.readWrite { (transaction : YapDatabaseReadWriteTransaction) in
-                transaction.setObject(item, forKey: item.identifier(), inCollection: type(of: item).collectionName())
+        var error: Error?
+        
+        self.writeConnection.readWrite { (transaction : YapDatabaseReadWriteTransaction) in
+            do {
+                let store = TransactionalNSCodingPersistenceStore(writeTransaction: transaction)
+                try store.persist(item)
+            } catch let thrownError {
+                error = thrownError
             }
-        } else {
-            throw PersistenceStoreError.CannotUse(object : item, inStoreWithType: PersistableType.Type.self)
         }
     
+        if let thrownError = error {
+            throw thrownError
+        }
     }
     
     public func persist<T>(_ item: T!,completion: @escaping () -> ()) throws {
         
-        if let item = item as? PersistableType {
+        var error: Error?
         
-            self.writeConnection.asyncReadWrite({ (transaction :YapDatabaseReadWriteTransaction) in
-                transaction.setObject(item, forKey: item.identifier(), inCollection: type(of: item).collectionName())
-            }) { 
-                completion()
+        self.writeConnection.asyncReadWrite({ (transaction :YapDatabaseReadWriteTransaction) in
+            do {
+                let store = TransactionalNSCodingPersistenceStore(writeTransaction: transaction)
+                try store.persist(item)
+            } catch let thrownError {
+                error = thrownError
             }
-            
-        } else {
-            throw PersistenceStoreError.CannotUse(object : item, inStoreWithType: PersistableType.Type.self)
+        }) {
+            completion()
         }
         
+        if let thrownError = error {
+            throw thrownError
+        }
     }
     
     public func delete<T>(_ item: T!) throws {
         
-        if let item = item as? PersistableType {
-          
-            let collection = type(of: item).collectionName()
-            let identifier = item.identifier()
-            
-            self.writeConnection.readWrite { (transaction : YapDatabaseReadWriteTransaction) in
-                transaction.removeObject(forKey: identifier, inCollection: collection)
+        var error: Error?
+        
+        self.writeConnection.readWrite { (transaction : YapDatabaseReadWriteTransaction) in
+            do {
+                let store = TransactionalNSCodingPersistenceStore(writeTransaction: transaction)
+                try store.delete(item)
+            } catch let thrownError {
+                error = thrownError
             }
-            
-        } else {
-            throw PersistenceStoreError.CannotUse(object : item, inStoreWithType: PersistableType.Type.self)
+        }
+        
+        if let thrownError = error {
+            throw thrownError
         }
 
     }
@@ -150,196 +162,218 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     
     public func delete<T>(_ item: T!, completion: @escaping () -> ()) throws {
         
-        if let item = item as? PersistableType {
-            
-            let collection = type(of: item).collectionName()
-            let identifier = item.identifier()
-            
-            self.writeConnection.asyncReadWrite({ (transaction:YapDatabaseReadWriteTransaction) in
-                
-                transaction.removeObject(forKey: identifier, inCollection: collection)
-                
-            }) {
-                completion()
+        var error: Error?
+        
+        self.writeConnection.asyncReadWrite({ (transaction:YapDatabaseReadWriteTransaction) in
+            do {
+                let store = TransactionalNSCodingPersistenceStore(writeTransaction: transaction)
+                try store.delete(item)
+            } catch let thrownError {
+                error = thrownError
             }
             
-        } else {
-            throw PersistenceStoreError.CannotUse(object : item, inStoreWithType: PersistableType.Type.self)
+        }) {
+            completion()
         }
-
+        
+        if let thrownError = error {
+            throw thrownError
+        }
+        
     }
     
     public func get<T>(_ identifier: String) throws -> T? {
+
+        var error: Error?
         
+        var item: T?
         
-        if let type = T.self as? PersistableType.Type {
+        self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
             
-            var item : T?
-            
-            self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
-                item = transaction.object(forKey: identifier, inCollection: type.collectionName()) as! T?
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                item = try store.get(identifier)
+            } catch let thrownError {
+                error = thrownError
             }
         
-            return item
-            
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
 
+        if let thrownError = error {
+            throw thrownError
+        }
+    
+        return item
     }
     
     public func get<T>(_ identifier: String, completion: @escaping (_ item: T?) -> Void ) throws {
         
-        if let type = T.self as? PersistableType.Type {
-            var item : T?
+        var error: Error?
+        var item: T?
+        
+        self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
             
-            self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
-                
-                item = transaction.object(forKey: identifier, inCollection: type.collectionName()) as! T?
-                
-            }) {
-                completion(item)
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                item = try store.get(identifier)
+            } catch let thrownError {
+                error = thrownError
             }
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+            
+        }) {
+            completion(item)
+        }
+        
+        if let thrownError = error {
+            throw thrownError
         }
         
     }
     
     public func getAll<T>(_ type: T.Type) throws -> [T] {
-
-        if let type = T.self as? PersistableType.Type {
-            var items : [T] = [T]()
+        
+        var error: Error?
+        
+        var items : [T] = [T]()
+        
+        self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
             
-            let collection = type.collectionName()
-            
-            self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
-                transaction.enumerateRows(inCollection: collection, using: { (key: String, object: Any, metadata: Any?, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
-                    items.append(object as! T)
-                })
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                items = try store.getAll(type)
+            } catch let thrownError {
+                error = thrownError
             }
             
-            return items
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
+        
+        if let thrownError = error {
+            throw thrownError
+        }
+        
+        return items
     }
     
     public func getAll<T>(_ type: T.Type, completion: @escaping (_ items: [T]) -> Void) throws {
         
-        if let type = T.self as? PersistableType.Type {
+        var error: Error?
+        
+        var items : [T] = [T]()
+        
+        self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
             
-            var items : [T] = [T]()
-            
-            let collection = type.collectionName()
-            
-            self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
-                
-                transaction.enumerateRows(inCollection: collection, using: { (key: String, object: Any, metadata: Any?, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
-                    items.append(object as! T)
-                })
-                
-            }) {
-                completion(items)
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                items = try store.getAll(type)
+            } catch let thrownError {
+                error = thrownError
             }
             
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }) {
+            completion(items)
+        }
+        
+        if let thrownError = error {
+            throw thrownError
         }
 
     }
     
     public func getAll<T>(_ viewName:String) throws ->[T] {
         
-        if let _ = T.self as? PersistableType.Type {
+        var error: Error?
         
-            var resultArray : Array<T> = [T]()
+        var items : [T] = [T]()
+        
+        self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
             
-            self.readConnection.read { (transaction:YapDatabaseReadTransaction) in
-                if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
-                    viewTransaction.enumerateGroups({ (group:String, stop:UnsafeMutablePointer<ObjCBool>) in
-                        viewTransaction.enumerateKeysAndObjects(inGroup: group, with: [], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
-                            resultArray.append(object as! T)
-                        })
-                    })
-                }
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                items = try store.getAll(viewName)
+            } catch let thrownError {
+                error = thrownError
             }
             
-            return resultArray
-            
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
         }
+        
+        if let thrownError = error {
+            throw thrownError
+        }
+        
+        return items
         
     }
     
     public func getAll<T>(_ viewName:String, completion: @escaping (_ items: [T]) -> Void) throws {
         
-        if let _ = T.self as? PersistableType.Type {
+        var error: Error?
         
-            var resultArray : [T] = [T]()
+        var items : [T] = [T]()
+        
+        self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
             
-            self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
-                if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
-                    viewTransaction.enumerateGroups({ (group:String, stop:UnsafeMutablePointer<ObjCBool>) in
-                        viewTransaction.enumerateKeysAndObjects(inGroup: group, with: [], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
-                            resultArray.append(object as! T)
-                        })
-                    })
-                }
-            }) {
-                completion(resultArray)
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                items = try store.getAll(viewName)
+            } catch let thrownError {
+                error = thrownError
             }
             
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }) {
+            completion(items)
         }
-
-
+        
+        if let thrownError = error {
+            throw thrownError
+        }
         
     }
     
     public func getAll<T>(_ viewName:String,groupName:String) throws ->[T] {
         
-        if let _ = T.self as? PersistableType.Type {
-            var resultArray = [T]()
+        var error: Error?
+        
+        var items : [T] = [T]()
+        
+        self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
             
-            self.readConnection.read { (transaction:YapDatabaseReadTransaction) in
-                
-                if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
-                    viewTransaction.enumerateKeysAndObjects(inGroup: groupName, with:[], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
-                        
-                        resultArray.append(object as! T)
-                    })
-                }
-                
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                items = try store.getAll(viewName,groupName:groupName)
+            } catch let thrownError {
+                error = thrownError
             }
-            return resultArray
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+            
         }
+        
+        if let thrownError = error {
+            throw thrownError
+        }
+        
+        return items
     }
     
     public func getAll<T>(_ viewName:String,groupName:String, completion: @escaping (_ items: [T]) -> Void) throws {
         
-        if let _ = T.self as? PersistableType.Type {
-            var resultArray : [T] = [T]()
-    
-            self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
-                
-                if let viewTransaction : YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction{
-                    viewTransaction.enumerateKeysAndObjects(inGroup: groupName, with:[], using: { (collection:String, key: String, object:Any, index:UInt, stop:UnsafeMutablePointer<ObjCBool>) in
-                        
-                        resultArray.append(object as! T)
-                    })
-                }
-                
-            }) {
-                completion(resultArray)
+        var error: Error?
+        
+        var items : [T] = [T]()
+        
+        self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
+            
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                items = try store.getAll(viewName,groupName:groupName)
+            } catch let thrownError {
+                error = thrownError
             }
             
-        } else {
-            throw PersistenceStoreError.CannotUseType(type : T.Type.self, inStoreWithType: PersistableType.Type.self)
+        }) {
+            completion(items)
+        }
+        
+        if let thrownError = error {
+            throw thrownError
         }
         
 
@@ -347,69 +381,72 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     
     public func exists(_ item : Any!) throws -> Bool {
         
-        if(!self.isResponsible(for: item)){
-            return false
-        }
+        var error: Error?
         
-        var exists : Bool = false
+        var exists = false
         
-        if let myItem = item as? PersistableType {
-            let collection = type(of: myItem.self).collectionName()
-            let identifier = myItem.identifier()
+        self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
             
-            self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
-                
-                exists = transaction.hasObject(forKey: identifier, inCollection: collection)
-
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                exists = try store.exists(item)
+            } catch let thrownError {
+                error = thrownError
             }
+            
         }
         
-       
+        if let thrownError = error {
+            throw thrownError
+        }
+        
         return exists
        
     }
     
     public func exists(_ item : Any!, completion: @escaping (_ exists: Bool) -> Void) throws  {
         
-        if(!self.isResponsible(for: item)){
-            completion(false)
-            return
+        var error: Error?
+        
+        var exists = false
+        
+        self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
+            
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                exists = try store.exists(item)
+            } catch let thrownError {
+                error = thrownError
+            }
+            
+        }) {
+            completion(exists)
         }
         
-        if let myItem = item as? PersistableType {
-            
-            let collection = type(of: myItem.self).collectionName()
-            let identifier = myItem.identifier()
-            
-            var exists : Bool = false
-            
-            self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
-                exists = transaction.hasObject(forKey: identifier, inCollection: collection)
-            }, completionBlock: {
-                completion(exists)
-            })
-            
-        } else {
-            completion(false)
+        if let thrownError = error {
+            throw thrownError
         }
-
     }
     
     public func exists(_ identifier : String,type : Any.Type) throws -> Bool{
-        if(!self.isResponsible(forType: type)){
-            return false
+        
+        var error: Error?
+        
+        var exists = false
+        
+        self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
+            
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                exists = try store.exists(identifier,type: type)
+            } catch let thrownError {
+                error = thrownError
+            }
+            
         }
         
-        var exists : Bool = false
-        
-        if let myType = type.self as? PersistableType.Type{
-            let collection = myType.collectionName()
-            
-            self.readConnection.read { (transaction: YapDatabaseReadTransaction) in
-                
-                exists = transaction.hasObject(forKey: identifier, inCollection: collection)
-                
-            }
+        if let thrownError = error {
+            throw thrownError
         }
         
         return exists
@@ -418,27 +455,28 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     
     public func exists(_ identifier : String,type : Any.Type,  completion: @escaping (_ exists: Bool) -> Void) throws{
         
-        if(!self.isResponsible(forType: type)){
-            completion(false)
-            return
+        
+        var error: Error?
+        
+        var exists = false
+        
+        self.readConnection.asyncRead({ (transaction:YapDatabaseReadTransaction) in
+            
+            do {
+                let store = TransactionalNSCodingPersistenceStore(readTransaction: transaction)
+                exists = try store.exists(identifier,type: type)
+            } catch let thrownError {
+                error = thrownError
+            }
+            
+        }) {
+            completion(exists)
         }
         
-        var exists : Bool = false
-        
-        if let myType = type.self as? PersistableType.Type{
-            let collection = myType.collectionName()
-        
-            self.readConnection.asyncRead({ (transaction: YapDatabaseReadTransaction) in
-                exists = transaction.hasObject(forKey: identifier, inCollection: collection)
-            
-            }) {
-                completion(exists)
-            }
-        }else{
-            completion(false)
+        if let thrownError = error {
+            throw thrownError
         }
 
-        
     }
     
     
@@ -504,7 +542,26 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
         
     }
     
-    public func transaction(transaction: @escaping (AnyTypedPersistenceStore<NSCoding & CanBePersistedProtocol>) throws -> Void) rethrows {
+    public func transaction(transaction: @escaping (AnyTypedPersistenceStore<NSCoding & CanBePersistedProtocol>) throws -> Void) throws {
+        
+        var error: Error?
+        
+        self.writeConnection.readWrite { (myTransaction : YapDatabaseReadWriteTransaction) in
+            
+            
+            do {
+                let store = TransactionalNSCodingPersistenceStore(writeTransaction: myTransaction)
+                let anyStore = AnyTypedPersistenceStore(store)
+                try transaction(anyStore)
+            } catch let thrownError {
+                myTransaction.rollback()
+                error = thrownError
+            }
+        }
+        
+        if let thrownError = error {
+            throw thrownError
+        }
         
     }
 }

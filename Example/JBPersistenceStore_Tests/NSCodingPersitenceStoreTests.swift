@@ -681,6 +681,60 @@ class NSCodingPersitenceStoreTests: XCTestCase {
         
     }
     
+    
+    
+    func testTransaction() {
+        
+        do {
+            let store = self.createStore()
+            
+            try store.transaction(transaction: { (store) in
+                
+                let persistable = TestPersistable(id: "666",
+                                                  title: "Testtitel")
+                try store.persist(persistable)
+            })
+            
+            let persistable : TestPersistable? = try store.get("666")
+            XCTAssertEqual(persistable?.title, "Testtitel")
+            
+        }   catch let error {
+            XCTFail("FAIL: \(#file) \(#line) \(error)")
+        }
+        
+    }
+    
+    func testTransactionRollback() {
+        
+        let store = self.createStore()
+        let expected = self.expectation(description: "errorExpect")
+        
+        do {
+            
+            try store.transaction(transaction: { (store) in
+                
+                let persistable = TestPersistable(id: "666",
+                                                  title: "Testtitel")
+                try store.persist(persistable)
+                
+                throw NSError(domain: "testDomain", code: 42, userInfo: nil)
+            })
+            
+        }   catch {
+            
+            do {
+                let persistable : TestPersistable? = try store.get("666")
+                XCTAssertNil(persistable)
+                expected.fulfill()
+            } catch let error {
+                XCTFail("FAIL: \(#file) \(#line) \(error)")
+            }
+            
+        }
+        
+        self.wait(for: [expected], timeout: 2)
+    }
+    
     func fileExists(atURL: String) -> Bool{
         guard let url = URL(string: atURL) else{return false}
         do{

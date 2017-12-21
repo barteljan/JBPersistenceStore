@@ -200,6 +200,8 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
     public func exists(_ identifier: String, type: Any.Type) throws -> Bool {
         let transaction = self.getReadTransaction()
         
+        print(type)
+        
         if(!self.isResponsible(forType: type)){
             return false
         }
@@ -234,7 +236,7 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
         throw TransactionalNSCodingPersistenceStoreError.CannotAddViewInTransaction(viewName: viewName)
     }
     
-    public func transaction(transaction: @escaping (AnyTypedPersistenceStore<NSCoding & CanBePersistedProtocol>) throws -> Void) rethrows {
+    public func transaction(transaction: @escaping (AnyTypedPersistenceStore<NSCoding & CanBePersistedProtocol>) throws -> Void) throws {
         fatalError("cannot open transaction in an other transaction")
     }
     
