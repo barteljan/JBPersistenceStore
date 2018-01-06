@@ -179,7 +179,6 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
             } catch let thrownError {
                 error = thrownError
             }
-            
         }) {
             completion()
         }
