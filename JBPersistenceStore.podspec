@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "JBPersistenceStore"
-s.version          = "3.0.0"
+s.version          = "3.1.0"
 s.summary          = "A persistence store for storing your models in a yapdatabase"
 
 s.description      = <<-DESC
@@ -21,6 +21,6 @@ s.pod_target_xcconfig = { 'WARNING_CFLAGS' => '-Wdeprecated-declarations' }
 
 s.dependency 'YapDatabase/Standard'#, '~> 2.9.0'
 s.dependency 'JBPersistenceStore-Protocols','~> 3.0.0'
-s.dependency 'VISPER-Entity', '~> 1.0.0'
+s.dependency 'VISPER-Entity', '~> 1.1.0'
 
 end
