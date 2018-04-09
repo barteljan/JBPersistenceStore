@@ -10,6 +10,7 @@ import Foundation
 import JBPersistenceStore_Protocols
 import YapDatabase
 import YapDatabase.YapDatabaseView
+import VISPER_Entity
 
 open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     
@@ -92,11 +93,11 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
         return self._version
     }
     
-    public func isResponsible(for object: Any) -> Bool{
+    public func isResponsible<T>(for object: T) -> Bool{
         return object is PersistableType
     }
     
-    public func isResponsible(forType type: Any.Type) -> Bool{
+    public func isResponsible<T>(forType type: T.Type) -> Bool{
         let result = type.self is PersistableType.Type
         return result
     }
@@ -402,7 +403,7 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
 
     }
     
-    public func exists(_ item : Any!) throws -> Bool {
+    public func exists<T>(_ item : T!) throws -> Bool {
         
         var error: Error?
         
@@ -427,7 +428,7 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
        
     }
     
-    public func exists(_ item : Any!, completion: @escaping (_ exists: Bool) -> Void) throws  {
+    public func exists<T>(_ item : T!, completion: @escaping (_ exists: Bool) -> Void) throws  {
         
         var error: Error?
         
@@ -451,7 +452,7 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
         }
     }
     
-    public func exists(_ identifier : String,type : Any.Type) throws -> Bool{
+    public func exists<T>(_ identifier : String,type : T.Type) throws -> Bool{
         
         var error: Error?
         
@@ -476,7 +477,7 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
     }
     
     
-    public func exists(_ identifier : String,type : Any.Type,  completion: @escaping (_ exists: Bool) -> Void) throws{
+    public func exists<T>(_ identifier : String,type : T.Type,  completion: @escaping (_ exists: Bool) -> Void) throws{
         
         
         var error: Error?
@@ -569,7 +570,7 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
         
     }
     
-    public func transaction(transaction: @escaping (AnyTypedPersistenceStore<NSCoding & CanBePersistedProtocol>) throws -> Void) throws {
+    public func transaction(transaction: @escaping (EntityStore) throws -> Void) throws {
         
         var error: Error?
         

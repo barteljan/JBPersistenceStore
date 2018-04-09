@@ -9,7 +9,7 @@ import Foundation
 import JBPersistenceStore_Protocols
 import YapDatabase
 import YapDatabase.YapDatabaseView
-
+import VISPER_Entity
 
 public enum TransactionalNSCodingPersistenceStoreError: Error{
     case NoWriteTransactionFound
@@ -175,7 +175,7 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
         completion(items)
     }
     
-    public func exists(_ item: Any!) throws -> Bool {
+    public func exists<T>(_ item: T!) throws -> Bool {
         let transaction = self.getReadTransaction()
         
         if(!self.isResponsible(for: item)){
@@ -192,12 +192,12 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
         return transaction.hasObject(forKey: identifier, inCollection: collection)
     }
     
-    public func exists(_ item: Any!, completion: @escaping (Bool) -> Void) throws {
+    public func exists<T>(_ item: T!, completion: @escaping (Bool) -> Void) throws {
         let exists = try self.exists(item)
         completion(exists)
     }
     
-    public func exists(_ identifier: String, type: Any.Type) throws -> Bool {
+    public func exists<T>(_ identifier: String, type: T.Type) throws -> Bool {
         let transaction = self.getReadTransaction()
         
         print(type)
@@ -215,7 +215,7 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
         return transaction.hasObject(forKey: identifier, inCollection: collection)
     }
     
-    public func exists(_ identifier: String, type: Any.Type, completion: @escaping (Bool) -> Void) throws {
+    public func exists<T>(_ identifier: String, type: T.Type, completion: @escaping (Bool) -> Void) throws {
         let exists = try self.exists(identifier, type: type)
         completion(exists)
     }
@@ -236,10 +236,8 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
         throw TransactionalNSCodingPersistenceStoreError.CannotAddViewInTransaction(viewName: viewName)
     }
     
-    public func transaction(transaction: @escaping (AnyTypedPersistenceStore<NSCoding & CanBePersistedProtocol>) throws -> Void) throws {
+    public func transaction(transaction: @escaping (EntityStore) throws -> Void) throws {
         fatalError("cannot open transaction in an other transaction")
     }
-    
-    
     
 }

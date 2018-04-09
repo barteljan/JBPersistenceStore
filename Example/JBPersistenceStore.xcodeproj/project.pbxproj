@@ -40,7 +40,7 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		6B589AFDD7ADC8BF112F11E0 /* JBPersistenceStore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JBPersistenceStore.podspec; path = ../JBPersistenceStore.podspec; sourceTree = "<group>"; };
+		6B589AFDD7ADC8BF112F11E0 /* JBPersistenceStore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JBPersistenceStore.podspec; path = ../JBPersistenceStore.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		75F58EB19B5244D3749BA6F4 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9A6911FA1EC579B30038FA79 /* PersistenceStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceStoreTests.swift; sourceTree = "<group>"; };
 		9ADD5E5C1EC0CCD600F9DC38 /* JBPersistenceStore_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JBPersistenceStore_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +274,7 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore/JBPersistenceStore.framework",
 				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore-Protocols/JBPersistenceStore_Protocols.framework",
+				"${BUILT_PRODUCTS_DIR}/VISPER-Entity/VISPER_Entity.framework",
 				"${BUILT_PRODUCTS_DIR}/YapDatabase/YapDatabase.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -281,6 +282,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore_Protocols.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VISPER_Entity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YapDatabase.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +300,7 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore/JBPersistenceStore.framework",
 				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore-Protocols/JBPersistenceStore_Protocols.framework",
+				"${BUILT_PRODUCTS_DIR}/VISPER-Entity/VISPER_Entity.framework",
 				"${BUILT_PRODUCTS_DIR}/YapDatabase/YapDatabase.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -305,6 +308,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore_Protocols.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VISPER_Entity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YapDatabase.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
