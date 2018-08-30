@@ -37,7 +37,7 @@ open class NSCodingPersistenceStore : TypedPersistenceStoreProtocol{
         
         
         let isExistingDatabase: Bool = (try? URL(string: databasePath)!.checkResourceIsReachable()) ?? false
-        self.database = YapDatabase(path: databasePath)
+        self.database = YapDatabase(path: databasePath)!
         self.readConnection  = self.database.newConnection()
         self.writeConnection = self.database.newConnection()
         
