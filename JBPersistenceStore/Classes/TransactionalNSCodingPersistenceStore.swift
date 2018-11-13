@@ -11,12 +11,6 @@ import VISPER_Entity
 import YapDatabase
 import YapDatabase.YapDatabaseView
 
-public enum TransactionalNSCodingPersistenceStoreError: Error {
-    case NoWriteTransactionFound
-    case CannotAddViewInTransaction(viewName: String)
-    case CannotOpenAnTransactionInAnOtherTransaction
-}
-
 public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtocol {
     public typealias PersistableType = NSCoding & CanBePersistedProtocol
 

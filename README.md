@@ -20,6 +20,143 @@ it, simply add the following line to your Podfile:
 pod "JBPersistenceStore"
 ```
 
+## Usage
+
+### Models
+
+The Models you want to persist must implement NSCoding and CanBePersistedProtocol. They must also inherit from NSObjet.  
+Hint: You can implement CanBePersistedProtocol inside an Extension to make your file more tidy.
+
+```swift
+public class DemoModel: NSObject, NSCoding {
+    (...)
+}
+
+extension DemoModel: CanBePersistedProtocol {
+    (...)
+}
+```
+
+### Implementing CanBePersistedProtocol
+
+To implement CanBePersistedProtocol you can (but don't need to) use a  private Key enum. If so, declare it inside your class:
+
+```swift
+public class DemoModel: NSObject, NSCoding {
+    private enum Keys: String {
+        case id, name, collectionName // one case for any property that shall be persisted plus one for the collectionName
+        }
+
+    var modelId: String
+    var modelName: String
+
+    (...)
+}
+```
+
+each property you want to persist needs a key. Keep in mind that one property must be unique (primary key). You can use this property to implement identifier(). In most cases it will be an UUID.  
+You can add one case in the enum for your collectionName() as well.  
+You must implement collectionName() and identifier(). They return strings for identifying. collectionName() identifies the type in general, identifier() identifies a single model.  
+
+```swift
+extension DemoModel: CanBePersistedProtocol {
+    // an identifier for a group. Must be unique amongst a Type.
+    public static func collectionName() -> String {
+        return Keys.collectionName.rawValue
+    }
+
+    // an identifier for a single model. Must be unique. It is common to use UUIDs here.
+    public func identifier() -> String {
+        return self.modelId
+    }
+}
+```
+
+### Implementing NSCoding
+
+```swift
+public class DemoModel: NSObject, NSCoding {
+    (...)
+
+    var modelId: String
+    var modelName: String
+
+    (...)
+
+    // An initializer that the store will use to resurrect your model
+    public required init?(coder aDecoder: NSCoder) {
+        if let id = aDecoder.decodeObject(forKey: Keys.id.rawValue) as? String, let modelName = aDecoder.decodeObject(forKey: Keys.name.rawValue) as? String {
+            self.modelId = id
+            self.modelName = modelName
+        } else {
+                fatalError("could not decode object \(#file)")
+        }
+    }
+
+    // The method that the store will use to persist your model
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.modelId, forKey: Keys.id.rawValue)
+        aCoder.encode(self.modelName, forKey: Keys.name.rawValue)
+    }
+}
+```
+
+implementing NSCoding is straight-forward. But keep in mind, that optionals cannot be persisted and that you need casting in some cases.  
+This means that you should check for nil while you are decoding, otherwise your app might crash.
+Strings can be decoded as Objects and need to be casted to String.
+If your class has members to persist that are not primitive types, see here: https://stackoverflow.com/questions/43060636/how-do-i-save-persist-class-objects-that-include-other-classes-with-swift
+⚠️ If there are optionals that are nil, just don't persist them but ignore them!
+
+### Creating a store
+
+```swift
+let store = NSCodingPersistenceStore(databaseFilename: "db" + UUID().uuidString, version: 0)
+```
+
+the UUID should stay the same unless you want to migrate or renew your database.  
+Documentation on database updates/migrations will follow.  
+
+### persisting and fetching single items
+
+a model persisted like this:
+
+```swift
+let demoModelToPersist = DemoModel(modelId: "38AFCFBE-9EC9-45A3-AAC8-B0164E5ACD5A", modelName: "the single model")
+try! store.persist(demoModelToPersist)
+```
+
+can be easily fetched like this:
+
+```swift
+let deSerializedModel = try! store.get("38AFCFBE-9EC9-45A3-AAC8-B0164E5ACD5A", type: DemoModel.self)
+```
+
+### persisting and fetching multiple items
+
+multiple models persisted like this:
+
+```swift
+
+var multipleItems = [
+                DemoModel(modelId: "38AFCFBE-9EC9-45A3-AAC8-B0164E5ACD5A", modelName: "first model"),
+                DemoModel(modelId: "C3263826-347E-4CAC-B142-0392A11BBE44", modelName: "second model"),
+                DemoModel(modelId: "D7CC435A-6975-4089-99E8-80A53B3877C3", modelName: "third model")
+                ]
+
+try! store.persist(multipleItems)
+```
+
+cannot be easily fetched. But there is a method to fetch all Items of a certain type.
+
+```swift
+var multipleItems = [DemoModel]()
+try! multipleItems = store.getAll(DemoModel.self)
+
+let yourChoice = multipleItems.filter { /* your magic here */ }
+```
+
+after that you must filter to get the items you want.
+
 ## Author
 
 Jan Bartel, jan.bartel@atino.net

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		54B747E2DBCB36C0A5D7EBE5 /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F623B784AD12981D791DD668 /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework */; };
+		567001F2219AB7D600B3E1B4 /* DemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567001F1219AB7D600B3E1B4 /* DemoModel.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		268B635505BA63256EE21DE5 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig"; path = "Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		33906EF478CF01FD9B7C2FD9 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig"; path = "Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig"; sourceTree = "<group>"; };
 		54E91915B20DEF6400CED376 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig"; path = "Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		567001F1219AB7D600B3E1B4 /* DemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModel.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* JBPersistenceStore_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JBPersistenceStore_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				567001F1219AB7D600B3E1B4 /* DemoModel.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -154,7 +157,6 @@
 				B15E71D9FBFE692B653DCA43 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.debug.xcconfig */,
 				54E91915B20DEF6400CED376 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -375,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				567001F2219AB7D600B3E1B4 /* DemoModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
