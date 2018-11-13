@@ -45,7 +45,7 @@ To implement CanBePersistedProtocol you can (but don't need to) use a  private K
 public class DemoModel: NSObject, NSCoding {
     private enum Keys: String {
         case id, name, collectionName // one case for any property that shall be persisted plus one for the collectionName
-        }
+    }
 
     var modelId: String
     var modelName: String
