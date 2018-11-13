@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B19524F080F512D5A2F4880 /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF8BAD166135C5057C9996F /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework */; };
+		54B747E2DBCB36C0A5D7EBE5 /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F623B784AD12981D791DD668 /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		703EEC04BD89BF122943DBA8 /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A745670E7A5267D6437F840A /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework */; };
 		9A6911FB1EC579B30038FA79 /* PersistenceStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6911FA1EC579B30038FA79 /* PersistenceStoreTests.swift */; };
 		9ADD5E6B1EC0D12400F9DC38 /* NSCodingPersitenceStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD5E6A1EC0D12400F9DC38 /* NSCodingPersitenceStoreTests.swift */; };
 		9ADD5E711EC0D3FB00F9DC38 /* TestPersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD5E701EC0D3FB00F9DC38 /* TestPersistable.swift */; };
+		BD52E4319EFEDD62456C3271 /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D9EB0D24F582931F550DBC /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,9 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AF8BAD166135C5057C9996F /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JBPersistenceStore_JBPersistenceStore_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		177BD19F3CEF3497CF13ADE1 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		02D9EB0D24F582931F550DBC /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		212B35A53B12115E24E87564 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		268B635505BA63256EE21DE5 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig"; path = "Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		33906EF478CF01FD9B7C2FD9 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig"; path = "Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig"; sourceTree = "<group>"; };
+		54E91915B20DEF6400CED376 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig"; path = "Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* JBPersistenceStore_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JBPersistenceStore_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,16 +43,14 @@
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6B589AFDD7ADC8BF112F11E0 /* JBPersistenceStore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JBPersistenceStore.podspec; path = ../JBPersistenceStore.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		75F58EB19B5244D3749BA6F4 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9A6911FA1EC579B30038FA79 /* PersistenceStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceStoreTests.swift; sourceTree = "<group>"; };
 		9ADD5E5C1EC0CCD600F9DC38 /* JBPersistenceStore_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JBPersistenceStore_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADD5E601EC0CCD600F9DC38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9ADD5E6A1EC0D12400F9DC38 /* NSCodingPersitenceStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCodingPersitenceStoreTests.swift; sourceTree = "<group>"; };
 		9ADD5E701EC0D3FB00F9DC38 /* TestPersistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPersistable.swift; sourceTree = "<group>"; };
-		A745670E7A5267D6437F840A /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3B45C0018EF0F4917C3990D /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		B15E71D9FBFE692B653DCA43 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Tests.debug.xcconfig"; path = "Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D7A3A90676F2CBD186C8DFB9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		E427F31E6518E05BBEA7FF9C /* Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F623B784AD12981D791DD668 /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JBPersistenceStore_JBPersistenceStore_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B19524F080F512D5A2F4880 /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework in Frameworks */,
+				54B747E2DBCB36C0A5D7EBE5 /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,22 +66,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				703EEC04BD89BF122943DBA8 /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework in Frameworks */,
+				BD52E4319EFEDD62456C3271 /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		19E78413457F263A98AF17E2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0AF8BAD166135C5057C9996F /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework */,
-				A745670E7A5267D6437F840A /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -89,8 +80,8 @@
 				607FACD21AFB9204008FA782 /* Example for JBPersistenceStore */,
 				9ADD5E5D1EC0CCD600F9DC38 /* JBPersistenceStore_Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				6DC975F3B33973D397A59A37 /* Pods */,
-				19E78413457F263A98AF17E2 /* Frameworks */,
+				A4281B740E4FCEAC7FDC1268 /* Pods */,
+				7CE33FA6633E5C7F766C8188 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,15 +126,13 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		6DC975F3B33973D397A59A37 /* Pods */ = {
+		7CE33FA6633E5C7F766C8188 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E427F31E6518E05BBEA7FF9C /* Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig */,
-				75F58EB19B5244D3749BA6F4 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig */,
-				177BD19F3CEF3497CF13ADE1 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.debug.xcconfig */,
-				B3B45C0018EF0F4917C3990D /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig */,
+				F623B784AD12981D791DD668 /* Pods_JBPersistenceStore_JBPersistenceStore_Example.framework */,
+				02D9EB0D24F582931F550DBC /* Pods_JBPersistenceStore_JBPersistenceStore_Tests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9ADD5E5D1EC0CCD600F9DC38 /* JBPersistenceStore_Tests */ = {
@@ -157,6 +146,18 @@
 			path = JBPersistenceStore_Tests;
 			sourceTree = "<group>";
 		};
+		A4281B740E4FCEAC7FDC1268 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				268B635505BA63256EE21DE5 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig */,
+				33906EF478CF01FD9B7C2FD9 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig */,
+				B15E71D9FBFE692B653DCA43 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.debug.xcconfig */,
+				54E91915B20DEF6400CED376 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,12 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "JBPersistenceStore_Example" */;
 			buildPhases = (
-				B626A1102236952D78CA4FC9 /* [CP] Check Pods Manifest.lock */,
+				BECDB375CD3786DDE76E71E5 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				AE8F73D97C1A195447A8CA46 /* [CP] Embed Pods Frameworks */,
-				F9EFE1746A27F54355A68343 /* [CP] Copy Pods Resources */,
+				4E269A011EDD0024F9B96C33 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,12 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9ADD5E631EC0CCD600F9DC38 /* Build configuration list for PBXNativeTarget "JBPersistenceStore_Tests" */;
 			buildPhases = (
-				C11D16681E645B570CC94C43 /* [CP] Check Pods Manifest.lock */,
+				13CF76A0291FD3A7754BBF4A /* [CP] Check Pods Manifest.lock */,
 				9ADD5E581EC0CCD600F9DC38 /* Sources */,
 				9ADD5E591EC0CCD600F9DC38 /* Frameworks */,
 				9ADD5E5A1EC0CCD600F9DC38 /* Resources */,
-				94C1F2D3196E4D23B5262AF2 /* [CP] Embed Pods Frameworks */,
-				E44C238996A1026553C5684D /* [CP] Copy Pods Resources */,
+				57AA5749F94D570ED319B16E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,86 +263,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		94C1F2D3196E4D23B5262AF2 /* [CP] Embed Pods Frameworks */ = {
+		13CF76A0291FD3A7754BBF4A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore/JBPersistenceStore.framework",
-				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore-Protocols/JBPersistenceStore_Protocols.framework",
-				"${BUILT_PRODUCTS_DIR}/VISPER-Entity/VISPER_Entity.framework",
-				"${BUILT_PRODUCTS_DIR}/YapDatabase/YapDatabase.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore_Protocols.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VISPER_Entity.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YapDatabase.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AE8F73D97C1A195447A8CA46 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore/JBPersistenceStore.framework",
-				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore-Protocols/JBPersistenceStore_Protocols.framework",
-				"${BUILT_PRODUCTS_DIR}/VISPER-Entity/VISPER_Entity.framework",
-				"${BUILT_PRODUCTS_DIR}/YapDatabase/YapDatabase.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore_Protocols.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VISPER_Entity.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YapDatabase.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B626A1102236952D78CA4FC9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JBPersistenceStore-JBPersistenceStore_Example-checkManifestLockResult.txt",
+			outputFileListPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C11D16681E645B570CC94C43 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-JBPersistenceStore-JBPersistenceStore_Tests-checkManifestLockResult.txt",
 			);
@@ -352,34 +285,86 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E44C238996A1026553C5684D /* [CP] Copy Pods Resources */ = {
+		4E269A011EDD0024F9B96C33 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore/JBPersistenceStore.framework",
+				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore-Protocols/JBPersistenceStore_Protocols.framework",
+				"${BUILT_PRODUCTS_DIR}/VISPER-Entity/VISPER_Entity.framework",
+				"${BUILT_PRODUCTS_DIR}/YapDatabase/YapDatabase.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore_Protocols.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VISPER_Entity.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YapDatabase.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F9EFE1746A27F54355A68343 /* [CP] Copy Pods Resources */ = {
+		57AA5749F94D570ED319B16E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore/JBPersistenceStore.framework",
+				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore-Protocols/JBPersistenceStore_Protocols.framework",
+				"${BUILT_PRODUCTS_DIR}/VISPER-Entity/VISPER_Entity.framework",
+				"${BUILT_PRODUCTS_DIR}/YapDatabase/YapDatabase.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore_Protocols.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VISPER_Entity.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YapDatabase.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BECDB375CD3786DDE76E71E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JBPersistenceStore-JBPersistenceStore_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -537,7 +522,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E427F31E6518E05BBEA7FF9C /* Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig */;
+			baseConfigurationReference = 268B635505BA63256EE21DE5 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -553,7 +538,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75F58EB19B5244D3749BA6F4 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig */;
+			baseConfigurationReference = 33906EF478CF01FD9B7C2FD9 /* Pods-JBPersistenceStore-JBPersistenceStore_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -569,7 +554,7 @@
 		};
 		9ADD5E641EC0CCD600F9DC38 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 177BD19F3CEF3497CF13ADE1 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.debug.xcconfig */;
+			baseConfigurationReference = B15E71D9FBFE692B653DCA43 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -588,7 +573,7 @@
 		};
 		9ADD5E651EC0CCD600F9DC38 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3B45C0018EF0F4917C3990D /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig */;
+			baseConfigurationReference = 54E91915B20DEF6400CED376 /* Pods-JBPersistenceStore-JBPersistenceStore_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
