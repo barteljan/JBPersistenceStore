@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.demonstratePersistingSingleItem(withStore: codingStore)
         self.demonstrateFetchingSingleItem(from: codingStore)
 
+        self.demonstrateCheckExistence(in: codingStore)
+        
         return true
     }
 
@@ -45,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         /*
          in most cases you don't want all items, so you have to filter. It could be done like this:
-
          let yourChoice = multipleItems.filter { /* your magic here */ }
          */
 
@@ -64,5 +65,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func demonstrateFetchingSingleItem(from store: NSCodingPersistenceStore) {
         let deSerializedModel = try! store.get(self.uniqueIdentifier, type: DemoModel.self)
         print("You have ordered the DemoModel with the uniqueIdentifier: \(self.uniqueIdentifier), here you are: \(deSerializedModel!.modelName)")
+    }
+
+    func demonstrateCheckExistence(in store: NSCodingPersistenceStore) {
+        let id = UUID().uuidString
+        let itemFromSomewhere = DemoModel(modelId: id, modelName: "assume, this item is from an api ore somewhere else")
+        
+        let itemExits = try! store.exists(itemFromSomewhere)
+        
+        print("item is existing: \((itemExits ? "yes" : "no"))")
+    }
+
+    func demonstrateDeletingItem(fromStore store: NSCodingPersistenceStore) {
+        // we create and persist an item first
+        let id = UUID().uuidString
+        let item = DemoModel(modelId: id, modelName: "Kurzlebiges Modell")
+        try! store.persist(item)
+
+        let itemToDelete = try! store.get(id, type: DemoModel.self)
+
+        try! store.delete(itemToDelete)
+
+        try! store.delete(itemToDelete) {
+            print("maybe update UI?")
+        }
     }
 }

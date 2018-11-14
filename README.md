@@ -155,7 +155,63 @@ try! multipleItems = store.getAll(DemoModel.self)
 let yourChoice = multipleItems.filter { /* your magic here */ }
 ```
 
-after that you must filter to get the items you want.
+### using views for fetching items
+
+follows soon
+
+### check for existence
+
+You can check if a item has been persisted yet like this
+
+```swift
+let id = UUID().uuidString
+let itemFromSomewhere = DemoModel(modelId: id, modelName: "assume, this item is from an api ore somewhere else")
+
+let itemExits = try! store.exists(itemFromSomewhere)
+
+if itemExits {
+    // your reaction
+} else {
+    // your reaction
+}
+```
+
+You can check existence via identifier as well
+
+```swift
+let itemExists = try! store.exists("45F21990-7C4E-4506-882C-F6C5DBFB5C5B", type: DemoModel.self)
+```
+
+Or in case you need completion handler with a completion handler
+
+```swift
+try! store.exists("45F21990-7C4E-4506-882C-F6C5DBFB5C5B", type: DemoModel.self, completion: { (exists: Bool) in
+    if exists {
+        // your reaction here
+    } else {
+        // your reaction here
+    }
+})
+```
+
+### deleting items
+
+Items can be deleted like this
+
+```swift
+let itemToDelete = try! store.get("4FA9578E-D33F-4DBA-98E4-BEA340EEC992", type: DemoModel.self)
+try! store.delete(itemToDelete)
+```
+
+If you need to take action after deleting items, you can use a completion handler. Useful if you want to update your UI accordingly  
+
+```swift
+let itemToDelete = try! store.get("BD5B131F-54A1-4072-85BE-5176945A168E", type: DemoModel.self)
+try! store.delete(itemToDelete, completion: {
+    updateUI() // your reaction here
+})
+```
+
 
 ## Author
 
