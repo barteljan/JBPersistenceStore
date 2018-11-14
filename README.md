@@ -182,7 +182,7 @@ You can check existence via identifier as well
 let itemExists = try! store.exists("45F21990-7C4E-4506-882C-F6C5DBFB5C5B", type: DemoModel.self)
 ```
 
-Or in case you need completion handler with a completion handler
+Or in case you need deletion with a completion handler
 
 ```swift
 try! store.exists("45F21990-7C4E-4506-882C-F6C5DBFB5C5B", type: DemoModel.self, completion: { (exists: Bool) in
