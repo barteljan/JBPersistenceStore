@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let uniqueIdentifier = UUID().uuidString
     let uniqueIdentifiers = [UUID().uuidString, UUID().uuidString, UUID().uuidString]
 
-    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let codingStore = NSCodingPersistenceStore(databaseFilename: "db" + UUID().uuidString, version: 0)
 
         self.demonstratePersistingMultipleItems(withStore: codingStore)

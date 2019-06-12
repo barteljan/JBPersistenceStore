@@ -1,17 +1,14 @@
 PODS:
-  - CocoaLumberjack (3.4.2):
-    - CocoaLumberjack/Default (= 3.4.2)
-    - CocoaLumberjack/Extensions (= 3.4.2)
-  - CocoaLumberjack/Default (3.4.2)
-  - CocoaLumberjack/Extensions (3.4.2):
-    - CocoaLumberjack/Default
-  - JBPersistenceStore (3.2.5):
-    - JBPersistenceStore-Protocols (~> 4.0.0)
-    - VISPER-Entity (~> 3.0.0)
+  - CocoaLumberjack (3.5.3):
+    - CocoaLumberjack/Core (= 3.5.3)
+  - CocoaLumberjack/Core (3.5.3)
+  - JBPersistenceStore (4.0.0):
+    - JBPersistenceStore-Protocols (~> 5.0.0)
+    - VISPER-Entity (~> 4.0.0)
     - YapDatabase/Standard (~> 3.1.1)
-  - JBPersistenceStore-Protocols (4.0.0):
-    - VISPER-Entity (~> 3.0.0)
-  - VISPER-Entity (3.0.2)
+  - JBPersistenceStore-Protocols (5.0.0):
+    - VISPER-Entity (~> 4.0.0)
+  - VISPER-Entity (4.0.0)
   - YapDatabase (3.1.1):
     - YapDatabase/Standard (= 3.1.1)
   - YapDatabase/Standard (3.1.1):
@@ -78,28 +75,29 @@ PODS:
 
 DEPENDENCIES:
   - JBPersistenceStore (from `../`)
-  - JBPersistenceStore-Protocols
+  - JBPersistenceStore-Protocols (from `../../JBPersistenceStore-Protocols`)
   - VISPER-Entity
   - YapDatabase
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CocoaLumberjack
-    - JBPersistenceStore-Protocols
     - VISPER-Entity
     - YapDatabase
 
 EXTERNAL SOURCES:
   JBPersistenceStore:
     :path: "../"
+  JBPersistenceStore-Protocols:
+    :path: "../../JBPersistenceStore-Protocols"
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
-  JBPersistenceStore: baeb55be29cf78f5b10b508e527b83e986140b19
-  JBPersistenceStore-Protocols: 919e28a0788de7b764081b312e6f05a52871d612
-  VISPER-Entity: 771acbfc997f42c9c127f9e5a0e5b8eb4f41c3d2
+  CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
+  JBPersistenceStore: 26e483d6fcdf9de1798235f7d48c82f10faa2397
+  JBPersistenceStore-Protocols: 30d3630f2699c3982a8926d8f84baabe2143983f
+  VISPER-Entity: 81224368e821f2e71a7f979ce623cbd197d8c48f
   YapDatabase: b418a4baa6906e8028748938f9159807fd039af4
 
-PODFILE CHECKSUM: 8f4bfb1960d4587752298a7428baf02d04cb662f
+PODFILE CHECKSUM: 4db73ddbe33bca21591399387377fe4151fc65be
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.7.1
