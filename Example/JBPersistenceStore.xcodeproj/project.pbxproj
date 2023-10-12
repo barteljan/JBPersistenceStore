@@ -294,7 +294,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Example/Pods-JBPersistenceStore-JBPersistenceStore_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore/JBPersistenceStore.framework",
 				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore-Protocols/JBPersistenceStore_Protocols.framework",
 				"${BUILT_PRODUCTS_DIR}/VISPER-Entity/VISPER_Entity.framework",
@@ -302,7 +301,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore_Protocols.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VISPER_Entity.framework",
@@ -320,7 +318,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JBPersistenceStore-JBPersistenceStore_Tests/Pods-JBPersistenceStore-JBPersistenceStore_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore/JBPersistenceStore.framework",
 				"${BUILT_PRODUCTS_DIR}/JBPersistenceStore-Protocols/JBPersistenceStore_Protocols.framework",
 				"${BUILT_PRODUCTS_DIR}/VISPER-Entity/VISPER_Entity.framework",
@@ -328,7 +325,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBPersistenceStore_Protocols.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VISPER_Entity.framework",

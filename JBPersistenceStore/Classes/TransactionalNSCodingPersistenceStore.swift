@@ -98,10 +98,13 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
         let collection = type.collectionName()
 
         var items: [T] = [T]()
-        transaction.enumerateRows(inCollection: collection) { (_: String, object: Any, _: Any?, _: UnsafeMutablePointer<ObjCBool>) -> Void in
+        
+        let keys = transaction.allKeys(inCollection: collection)
+        
+        transaction.enumerateRows(forKeys: keys, inCollection: collection) { index, object, metadata, _ in
             items.append(object as! T)
         }
-
+                
         return items
     }
 
@@ -111,6 +114,8 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
     }
 
     public func getAll<T>(_ viewName: String) throws -> [T] {
+        fatalError("not implemented in this version")
+        /*
         let transaction = self.getReadTransaction()
 
         guard T.self is PersistableType.Type else {
@@ -121,6 +126,10 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
 
         if let viewTransaction: YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction {
             viewTransaction.enumerateGroups { (group: String, _: UnsafeMutablePointer<ObjCBool>) in
+                
+                let range = viewTransaction.en
+                
+                
                 viewTransaction.enumerateKeysAndObjects(inGroup: group, with: []) { (_: String, _: String, object: Any, _: UInt, _: UnsafeMutablePointer<ObjCBool>) in
                     resultArray.append(object as! T)
                 }
@@ -128,6 +137,7 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
         }
 
         return resultArray
+         */
     }
 
     public func getAll<T>(_ viewName: String, completion: @escaping ([T]) -> Void) throws {
@@ -136,6 +146,9 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
     }
 
     public func getAll<T>(_ viewName: String, groupName: String) throws -> [T] {
+        
+        fatalError("not implemented in this version")
+        /*
         let transaction = self.getReadTransaction()
 
         guard T.self is PersistableType.Type else {
@@ -152,6 +165,7 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
         }
 
         return resultArray
+         */
     }
 
     public func getAll<T>(_ viewName: String, groupName: String, completion: @escaping ([T]) -> Void) throws {
