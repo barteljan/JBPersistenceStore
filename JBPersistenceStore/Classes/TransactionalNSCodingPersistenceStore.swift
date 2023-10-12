@@ -114,8 +114,7 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
     }
 
     public func getAll<T>(_ viewName: String) throws -> [T] {
-        fatalError("not implemented in this version")
-        /*
+        
         let transaction = self.getReadTransaction()
 
         guard T.self is PersistableType.Type else {
@@ -127,17 +126,15 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
         if let viewTransaction: YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction {
             viewTransaction.enumerateGroups { (group: String, _: UnsafeMutablePointer<ObjCBool>) in
                 
-                let range = viewTransaction.en
-                
-                
-                viewTransaction.enumerateKeysAndObjects(inGroup: group, with: []) { (_: String, _: String, object: Any, _: UInt, _: UnsafeMutablePointer<ObjCBool>) in
+                viewTransaction.iterateKeysAndObjects(inGroup: group, reversed: false) { collection, key, object, index, stop in
                     resultArray.append(object as! T)
                 }
+                
             }
         }
 
         return resultArray
-         */
+        
     }
 
     public func getAll<T>(_ viewName: String, completion: @escaping ([T]) -> Void) throws {
@@ -147,8 +144,6 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
 
     public func getAll<T>(_ viewName: String, groupName: String) throws -> [T] {
         
-        fatalError("not implemented in this version")
-        /*
         let transaction = self.getReadTransaction()
 
         guard T.self is PersistableType.Type else {
@@ -158,14 +153,12 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
         var resultArray: [T] = [T]()
 
         if let viewTransaction: YapDatabaseViewTransaction = transaction.ext(viewName) as? YapDatabaseViewTransaction {
-            viewTransaction.enumerateKeysAndObjects(inGroup: groupName, with: []) { (_: String, _: String, object: Any, _: UInt, _: UnsafeMutablePointer<ObjCBool>) in
-
+            viewTransaction.iterateKeysAndObjects(inGroup: groupName) { collection, key, object, index, stop in
                 resultArray.append(object as! T)
             }
         }
 
         return resultArray
-         */
     }
 
     public func getAll<T>(_ viewName: String, groupName: String, completion: @escaping ([T]) -> Void) throws {
@@ -197,8 +190,6 @@ public class TransactionalNSCodingPersistenceStore: TypedPersistenceStoreProtoco
 
     public func exists<T>(_ identifier: String, type: T.Type) throws -> Bool {
         let transaction = self.getReadTransaction()
-
-        print(type)
 
         if !self.isResponsible(forType: type) {
             return false
