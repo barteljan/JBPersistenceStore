@@ -30,10 +30,10 @@ open class NSCodingPersistenceStore: TypedPersistenceStoreProtocol {
     }
 
     public init(databaseFilename: String, version newVersion: Int, asyncChangeVersionHandler versionHandler: ((NSCodingPersistenceStore, Int, Int, @escaping () -> Void) -> Void)) {
-        let databasePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(databaseFilename + ".sqlite").absoluteString
-
-        let isExistingDatabase: Bool = (try? URL(string: databasePath)!.checkResourceIsReachable()) ?? false
-        self.database = YapDatabase(path: databasePath)!
+        let databaseURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(databaseFilename + ".sqlite")
+        
+        let isExistingDatabase: Bool = (try? URL(string: databasePath.absoluteString)!.checkResourceIsReachable()) ?? false
+        self.database = YapDatabase(url: databasePath)!
         self.readConnection = self.database.newConnection()
         self.writeConnection = self.database.newConnection()
 
